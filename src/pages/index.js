@@ -1,42 +1,10 @@
-import { navigateTo, navigate } from "gatsby"
-import React, { useEffect, useState } from "react"
+import React from "react"
 
 export default function Home({
   data: {
     allFile: { edges: slides },
   },
-
-  location,
 }) {
-  const [currentPage, setCurrentPage] = useState("/")
-  // TODO make dynamic, getting it from the router
-  const pages = ["/", "/slides/one", "/slides/two", "/slides/three"]
-
-  useEffect(() => {
-    document.body.addEventListener("keydown", e => {
-      switch (e.key) {
-        case "ArrowRight": {
-          const next =
-            pages[pages.findIndex(page => page === location.pathname) + 1]
-          navigate(next)
-          setCurrentPage(next)
-          break
-        }
-
-        case "ArrowLeft": {
-          const prev =
-            pages[pages.findIndex(page => page === location.pathname) - 1]
-          navigate(prev)
-          setCurrentPage(prev)
-          break
-        }
-
-        default:
-          return
-      }
-    })
-  }, [])
-
   return (
     <ul>
       {slides.map((slide, i) => (
