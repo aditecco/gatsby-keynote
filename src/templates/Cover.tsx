@@ -32,7 +32,7 @@ interface IGatsbyProps {
 
 type TProps = IOwnProps & IGatsbyProps
 
-export default function Slide({
+export default function Cover({
   pageContext: { node },
   location,
 }: TProps): ReactElement | string {
@@ -50,7 +50,7 @@ export default function Slide({
     left: 1000,
     bottom: 0,
     transition: `transform, .3s ease`,
-    backgroundColor: "rebeccapurple",
+    backgroundColor: "teal",
     textAlign: "center",
     fontSize: "10rem",
     fontFamily: "Helvetica, sans-serif",
@@ -66,7 +66,7 @@ export default function Slide({
 
   return (
     <div className="SlideContainer" style={style}>
-      {title}
+      {node.childMarkdownRemark.frontmatter.template}
     </div>
   )
 }

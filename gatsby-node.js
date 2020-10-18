@@ -53,6 +53,7 @@ exports.createPages = async ({ graphql, actions }) => {
               frontmatter {
                 order
                 title
+                template
               }
             }
           }
@@ -64,7 +65,11 @@ exports.createPages = async ({ graphql, actions }) => {
   slides.data.allFile.edges.forEach(({ node }) => {
     createPage({
       path: `/slides/${node.childMarkdownRemark.frontmatter.title}`,
-      component: path.resolve(`./src/templates/Slide.tsx`),
+      component: path.resolve(
+        `./src/templates/${
+          node.childMarkdownRemark.frontmatter.template || "Slide"
+        }.tsx`
+      ),
       context: {
         node,
       },
