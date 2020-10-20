@@ -1,35 +1,11 @@
 import React from "react"
+import logo from "../../static/"
+import Slide from "../components/Slide/Slide"
 
-export default function Home({
-  data: {
-    allFile: { edges: slides },
-  },
-}) {
+export default function Cover() {
   return (
-    <ul>
-      {slides.map((slide, i) => (
-        <li key={i}>{slide.node.childMarkdownRemark.frontmatter.title}</li>
-      ))}
-    </ul>
+    <Slide title="Cover">
+      <img src={logo} alt="" width="300" height="auto" />
+    </Slide>
   )
 }
-
-export const query = graphql`
-  query {
-    allFile(filter: { sourceInstanceName: { eq: "slides" } }) {
-      edges {
-        node {
-          childMarkdownRemark {
-            id
-            html
-            frontmatter {
-              deck
-              title
-              order
-            }
-          }
-        }
-      }
-    }
-  }
-`
