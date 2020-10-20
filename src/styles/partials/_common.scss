@@ -1,0 +1,16 @@
+/* ---------------------------------
+common
+--------------------------------- */
+
+@import "./logic";
+@import "./vendor";
+@import "./typography";
+@import "./colors";
+
+@include init(false, false);
+
+body {
+  font-family: $font;
+  font-weight: 400;
+  color: black;
+}
