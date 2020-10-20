@@ -1,0 +1,25 @@
+/* ---------------------------------
+Split
+--------------------------------- */
+
+.Split {
+  // @include slideFoundation();
+
+  .slide-content {
+    grid-template-columns: 1fr 1fr;
+
+    .half {
+      &:first-child {
+        background-color: white;
+        display: grid;
+        place-content: center;
+      }
+
+      &:last-child {
+        background: linear-gradient(45deg, $accent-02, $accent-01);
+        display: "grid";
+        place-content: "center";
+      }
+    }
+  }
+}
