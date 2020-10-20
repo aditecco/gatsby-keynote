@@ -50,6 +50,7 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             childMarkdownRemark {
               id
+              html
               frontmatter {
                 order
                 title
@@ -63,12 +64,16 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   slides.data.allFile.edges.forEach(({ node }) => {
+    const {
+      childMarkdownRemark: {
+        frontmatter: { title, template, order },
+      },
+    } = node
+
     createPage({
-      path: `/slides/${node.childMarkdownRemark.frontmatter.title}`,
+      path: `/slides/${title}`,
       component: path.resolve(
-        `./src/templates/${
-          node.childMarkdownRemark.frontmatter.template || "Slide"
-        }.tsx`
+        `./src/templates/${template || "Blank"}/${template || "Blank"}.tsx`
       ),
       context: {
         node,

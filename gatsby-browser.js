@@ -1,8 +1,7 @@
 // https://www.gatsbyjs.org/docs/browser-apis/
 
 import { navigate } from "gatsby"
-
-window.document.body.style.backgroundColor = "#48236d"
+import "./src/styles/index.scss"
 
 window.arrowKeyNavigator = (function () {
   const PAGES = ["/", "/slides/one", "/slides/two", "/slides/three"]
