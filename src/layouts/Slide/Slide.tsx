@@ -2,8 +2,7 @@
 Slide
 --------------------------------- */
 
-import React, { ReactChildren, ReactElement, ReactNode, useEffect } from "react"
-// import "./Slide.scss"
+import React, { ReactElement, ReactNode, useEffect } from "react"
 
 interface IOwnProps {
   children: ReactNode
@@ -11,9 +10,9 @@ interface IOwnProps {
 }
 
 export default function Slide({ children, title }: IOwnProps): ReactElement {
-  useEffect(() => {
-    ;(document.querySelector(".Slide") as HTMLDivElement).style.left = "0"
-  }, [])
+  // useEffect(() => {
+  //   ;(document.querySelector(".Slide") as HTMLDivElement).style.left = "0"
+  // }, [])
 
   return (
     <div className={"Slide " + title}>
