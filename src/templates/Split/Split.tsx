@@ -2,10 +2,8 @@
 Split
 --------------------------------- */
 
-import React, { ReactElement, useEffect } from "react"
-// import "./Slide.scss"
-import { Link } from "gatsby"
-import Slide from "../../components/Slide/Slide"
+import React, { ReactElement } from "react"
+import Slide from "../../layouts/Slide/Slide"
 
 interface IOwnProps {}
 

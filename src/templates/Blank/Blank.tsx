@@ -2,9 +2,8 @@
 Blank
 --------------------------------- */
 
-import React, { ReactElement, useEffect } from "react"
-// import "./Blank.scss"
-import Slide from "../../components/Slide/Slide"
+import React, { ReactElement } from "react"
+import Slide from "../../layouts/Slide/Slide"
 
 interface IOwnProps {}
 
