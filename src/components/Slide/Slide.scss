@@ -1,0 +1,13 @@
+/* ---------------------------------
+Slide.scss    
+--------------------------------- */
+
+.Slide {
+  @include slideFoundation();
+
+  .slide-content {
+    display: grid;
+    height: inherit;
+    width: inherit;
+  }
+}
