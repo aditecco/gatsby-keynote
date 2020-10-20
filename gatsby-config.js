@@ -16,6 +16,12 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-plugin-sass`,
     {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`${__dirname}/src/layouts/Layout`),
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `slides`,

@@ -65,3 +65,8 @@ window.arrowKeyNavigator = (function () {
     PAGES,
   }
 })()
+
+// gatsby-plugin-transitions
+export const shouldUpdateScroll = () => {
+  return false
+}
