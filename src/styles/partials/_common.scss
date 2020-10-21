@@ -7,9 +7,9 @@ common
 @import "./typography";
 @import "./colors";
 
-@include init(false, false);
+@include init(false, true);
 
-body {
+:root > body {
   font-family: $font;
   font-weight: 400;
   color: black;
