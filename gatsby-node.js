@@ -55,6 +55,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 order
                 title
                 template
+                timestamp
               }
             }
           }

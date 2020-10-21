@@ -6,7 +6,7 @@ import "./src/styles/index.scss"
 window.arrowKeyNavigator = (function () {
   const SLIDES = Array(12)
     .fill()
-    .map((_, i) => (i === 0 ? `/` : `/slides/${i + 1}`))
+    .map((_, i) => (i === 0 ? `/` : `/slides/${i}`))
 
   // listener
   function listener(e) {
