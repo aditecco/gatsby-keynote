@@ -71,7 +71,7 @@ exports.createPages = async ({ graphql, actions }) => {
     } = node
 
     createPage({
-      path: `/slides/${title}`,
+      path: `/slides/${order}`,
       component: path.resolve(
         `./src/templates/${template || "Blank"}/${template || "Blank"}.tsx`
       ),
