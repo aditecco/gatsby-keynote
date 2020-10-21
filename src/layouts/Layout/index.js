@@ -2,15 +2,30 @@
 Layout
 --------------------------------- */
 
-import React from "react"
+import React, { useState } from "react"
 import { TransitionProvider, TransitionViews } from "gatsby-plugin-transitions"
 
+const initialStyles = {
+  colors: {
+    "accent-primary": "",
+    "accent-secondary": "",
+  },
+  typography: {
+    font: "",
+  },
+}
+
+const StyleContext = React.createContext(initialStyles)
+
 const Layout = ({ location, children }) => {
+  const [styles, setStyles] = useState(initialStyles)
+
   return (
-    <TransitionProvider
-      location={location}
-      mode="immediate"
-      /*
+    <StyleContext.Provider value={styles}>
+      <TransitionProvider
+        location={location}
+        mode="immediate"
+        /*
       location={location}
       mode="immediate"
       enter={{
@@ -38,9 +53,10 @@ const Layout = ({ location, children }) => {
         }
       }}
      */
-    >
-      <TransitionViews>{children}</TransitionViews>
-    </TransitionProvider>
+      >
+        <TransitionViews>{children}</TransitionViews>
+      </TransitionProvider>
+    </StyleContext.Provider>
   )
 }
 
