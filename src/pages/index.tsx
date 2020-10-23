@@ -1,6 +1,7 @@
 import React from "react"
 // import logo from "../../static/"
 import Slide from "../layouts/Slide/Slide"
+import { Link } from "gatsby"
 
 export default function Cover() {
   return (
@@ -16,6 +17,10 @@ export default function Cover() {
       >
         Cover
       </h1>
+
+      <nav className="settings-menu">
+        <Link to="/settings">Settings</Link>
+      </nav>
     </Slide>
   )
 }

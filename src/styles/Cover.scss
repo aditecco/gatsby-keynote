@@ -10,4 +10,12 @@ Cover
   .slide-content {
     place-content: center;
   }
+
+  .settings-menu {
+    position: fixed;
+    right: 0;
+    padding: 1rem;
+    // TODO
+    top: calc(100vh - (2rem + 20px));
+  }
 }
