@@ -18,7 +18,18 @@ export default function Settings(props: IOwnProps): ReactElement {
   return (
     <div>
       hey
-      {Object.entries(flatSettings).map(([k, v]) => `${k} ${v}`)}
+      <form action="#" className="settings-form">
+        {Object.entries(flatSettings).map(([k, v]) => {
+          v ? (
+            <span>{v}</span>
+          ) : (
+            <fieldset>
+              <label htmlFor={k}>{k}</label>
+              <input name={k} type="text" placeholder={k} />
+            </fieldset>
+          )
+        })}
+      </form>
     </div>
   )
 }
