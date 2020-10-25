@@ -4,18 +4,20 @@ import { navigate } from "gatsby"
 import "./src/styles/index.scss"
 
 window.arrowKeyNavigator = (function () {
-  const PAGES = ["/", "/slides/one", "/slides/two", "/slides/three"]
+  const SLIDES = Array(12)
+    .fill()
+    .map((_, i) => (i === 0 ? `/` : `/slides/${i}`))
 
   // listener
   function listener(e) {
     switch (e.key) {
       case "ArrowRight": {
-        navigateToNextPage()
+        navigateToNextSlide()
         break
       }
 
       case "ArrowLeft": {
-        navigateToPrevPage()
+        navigateToPrevSlide()
         break
       }
 
@@ -25,18 +27,18 @@ window.arrowKeyNavigator = (function () {
   }
 
   // navigateToNextPage
-  function navigateToNextPage() {
-    navigate(PAGES[PAGES.findIndex(matchPage) + 1])
+  function navigateToNextSlide() {
+    navigate(SLIDES[SLIDES.findIndex(matchSlide) + 1])
   }
 
   // navigateToPrevPage
-  function navigateToPrevPage() {
-    navigate(PAGES[PAGES.findIndex(matchPage) - 1])
+  function navigateToPrevSlide() {
+    navigate(SLIDES[SLIDES.findIndex(matchSlide) - 1])
   }
 
   // matchPage
-  function matchPage(page) {
-    return page === window.location.pathname
+  function matchSlide(slide) {
+    return slide === window.location.pathname
   }
 
   // destroy
@@ -60,8 +62,13 @@ window.arrowKeyNavigator = (function () {
     navigate,
     attachListener,
     destroyListener,
-    navigateToNextPage,
-    navigateToPrevPage,
-    PAGES,
+    navigateToNextPage: navigateToNextSlide,
+    navigateToPrevPage: navigateToPrevSlide,
+    SLIDES,
   }
 })()
+
+// gatsby-plugin-transitions
+export const shouldUpdateScroll = () => {
+  return false
+}

@@ -179,7 +179,8 @@ functions & mixins
 
   @if $transition {
     top: 0;
-    left: 1000px;
+    // left: 1000px;
+    left: 0;
     bottom: 0;
     transition: transform, 0.3s ease;
   }
