@@ -4,47 +4,22 @@ Layout
 
 import React, { useState } from "react"
 import { TransitionProvider, TransitionViews } from "gatsby-plugin-transitions"
-import { InitialStyles } from "../../types"
+import { ISettings } from "../../types"
 
-const initialStyles: InitialStyles = {
-  colors: {
-    "accent-primary": "",
-    "accent-secondary": "",
-  },
-  typography: {
-    font: "",
-  },
+export const initialSettings: ISettings = {
+  "accent-primary": "#f1c40f",
+  "accent-secondary": "#e74c3c",
+  font: "",
+  transition: "",
+  "main-logo": "",
+  "secondary-logo": "",
 }
 
-export const StyleContext = React.createContext(initialStyles)
-
-export interface InitialStyles {
-  colors: {
-    "accent-primary": string
-    "accent-secondary": string
-  }
-  typography: {
-    font: string
-  }
-}
-
-const initialStyles: InitialStyles = {
-  colors: {
-    "accent-primary": "",
-    "accent-secondary": "",
-  },
-  typography: {
-    font: "",
-  },
-}
-
-export const StyleContext = React.createContext(initialStyles)
+export const SettingsContext = React.createContext(null)
 
 const Layout = ({ location, children }) => {
-  const [styles, setStyles] = useState(initialStyles)
-
   return (
-    <StyleContext.Provider value={styles}>
+    <SettingsContext.Provider value={useState<ISettings>(initialSettings)}>
       <TransitionProvider
         location={location}
         mode="immediate"
@@ -79,7 +54,7 @@ const Layout = ({ location, children }) => {
       >
         <TransitionViews>{children}</TransitionViews>
       </TransitionProvider>
-    </StyleContext.Provider>
+    </SettingsContext.Provider>
   )
 }
 

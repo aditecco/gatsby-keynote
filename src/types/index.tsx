@@ -21,21 +21,30 @@ export interface IGatsbyInjectedProps {
 }
 
 // project
+// export interface ISettings {
+//   colors?: {
+//     "accent-primary": string
+//     "accent-secondary": string
+//   }
+//   typography?: {
+//     font: string
+//   }
+//   animation?: {
+//     transition: string
+//   }
+//   "asset-urls"?: {
+//     "main-logo": string
+//     "secondary-logo": string
+//   }
+// }
+
 export interface ISettings {
-  colors?: {
-    "accent-primary": string
-    "accent-secondary": string
-  }
-  typography?: {
-    font: string
-  }
-  animation?: {
-    transition: string
-  }
-  "asset-urls": {
-    "main-logo": string
-    "secondary-logo": string
-  }
+  "accent-primary"?: string
+  "accent-secondary"?: string
+  "main-logo"?: string
+  "secondary-logo"?: string
+  font?: string
+  transition?: string
 }
 
 export interface IFrontmatter {
