@@ -4,7 +4,7 @@ types
 
 // gatsby
 export interface IGatsbyInjectedProps {
-  pageContext: {
+  pageContext?: {
     node: {
       childMarkdownRemark: {
         id: string
