@@ -4,6 +4,19 @@ Layout
 
 import React, { useState } from "react"
 import { TransitionProvider, TransitionViews } from "gatsby-plugin-transitions"
+import { InitialStyles } from "../../types"
+
+const initialStyles: InitialStyles = {
+  colors: {
+    "accent-primary": "",
+    "accent-secondary": "",
+  },
+  typography: {
+    font: "",
+  },
+}
+
+export const StyleContext = React.createContext(initialStyles)
 
 export interface InitialStyles {
   colors: {

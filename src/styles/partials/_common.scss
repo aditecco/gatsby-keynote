@@ -2,15 +2,19 @@
 common
 --------------------------------- */
 
-@import "./logic";
 @import "./vendor";
-@import "./typography";
-@import "./colors";
+@import "./theme";
 
 @include init(false, true);
 
 :root > body {
   font-family: $font;
   font-weight: 400;
+  font-size: 1.6rem;
   color: black;
+}
+
+.emj {
+  font-size: 3.3rem;
+  vertical-align: middle;
 }

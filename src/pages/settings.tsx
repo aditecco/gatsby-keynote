@@ -3,12 +3,14 @@ Settings
 --------------------------------- */
 
 import React, { ReactElement, useContext } from "react"
-import { InitialStyles, StyleContext } from "../layouts/Layout"
+import { StyleContext } from "../layouts/Layout"
+import { ISettings } from "../types"
+import { Link } from "gatsby"
 
-interface IOwnProps {}
+interface OwnProps {}
 
-export default function Settings(props: IOwnProps): ReactElement {
-  const settings: InitialStyles = useContext(StyleContext)
+export default function Settings({}: OwnProps): ReactElement {
+  const settings: ISettings = useContext(StyleContext)
 
   const flatSettings = {
     ...settings.colors,
@@ -19,6 +21,8 @@ export default function Settings(props: IOwnProps): ReactElement {
     <div>
       hey
       <form action="#" className="settings-form">
+        <Link to="/">&larr; Home</Link>
+
         {Object.entries(flatSettings).map(([k, v]) => {
           v ? (
             <span>{v}</span>

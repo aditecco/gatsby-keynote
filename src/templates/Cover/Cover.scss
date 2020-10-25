@@ -1,0 +1,32 @@
+/* ---------------------------------
+Cover
+--------------------------------- */
+
+@import "../../styles/partials/theme";
+
+.Cover {
+  @include slideFoundation(false);
+  background: linear-gradient(45deg, $accent-02, $accent-01);
+
+  .slide-content {
+    place-content: center;
+  }
+
+  .settings-menu {
+    $pad: 2rem;
+
+    position: fixed;
+    right: 0;
+    padding: $pad;
+    // TODO
+    top: calc(100vh - ((#{$pad} * 2) + 20px));
+
+    a {
+      @extend %resetAnchors;
+      padding: 1rem;
+      border-radius: 2px;
+      font-size: small;
+      background-color: rgba($color: white, $alpha: 0.25);
+    }
+  }
+}

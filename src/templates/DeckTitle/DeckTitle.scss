@@ -1,0 +1,56 @@
+/* ---------------------------------
+DeckTitle
+--------------------------------- */
+
+@import "../../styles/partials/theme";
+
+.DeckTitle {
+  .slide-content {
+    grid-template-columns: 1fr 300px;
+    justify-items: center;
+    align-items: start;
+    padding-top: calc(100vh / 4);
+
+    .content {
+      padding: 0 6rem;
+
+      &:first-child {
+        align-self: stretch;
+        padding-bottom: 6rem;
+        padding-left: 6rem;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+      }
+
+      &:last-child {
+      }
+    }
+
+    .deck-title-heading {
+      font-family: $font;
+      font-weight: 700;
+      font-size: 9rem;
+      margin: 0;
+    }
+
+    .deck-title-logo {
+      width: 150px;
+    }
+
+    .deck-title-footer {
+      > * {
+        display: block;
+      }
+
+      .deck-title-timestamp {
+        letter-spacing: 0.25rem;
+        margin-bottom: 2rem;
+      }
+
+      .deck-title-copyright-info {
+        line-height: 1.65;
+      }
+    }
+  }
+}

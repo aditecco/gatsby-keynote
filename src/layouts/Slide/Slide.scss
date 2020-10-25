@@ -2,6 +2,8 @@
 Slide.scss    
 --------------------------------- */
 
+@import "../../styles/partials/theme";
+
 .Slide {
   @include slideFoundation();
 

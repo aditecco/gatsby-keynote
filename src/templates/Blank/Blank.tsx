@@ -4,31 +4,16 @@ Blank
 
 import React, { ReactElement } from "react"
 import Slide from "../../layouts/Slide/Slide"
+import { IGatsbyInjectedProps } from "../../types"
+import "./Blank.scss"
 
-interface IOwnProps {}
+interface OwnProps {}
 
-interface IGatsbyProps {
-  pageContext: {
-    node: {
-      childMarkdownRemark: {
-        id: string
-        html: string
-        frontmatter: {
-          deck: string
-          title: string
-          order: number
-          template: string
-        }
-      }
-    }
-  }
-}
-
-type TProps = IOwnProps & IGatsbyProps
+type Props = OwnProps & IGatsbyInjectedProps
 
 export default function Blank({
   pageContext: { node },
-}: TProps): ReactElement | string {
+}: Props): ReactElement | string {
   const {
     childMarkdownRemark: {
       frontmatter: { title },
