@@ -1,3 +1,97 @@
 /* ---------------------------------
 Blank
 --------------------------------- */
+
+@import "../../styles/partials/theme";
+
+.Blank {
+  .slide-content {
+    justify-content: center;
+    grid-template-columns: 40% 1fr;
+  }
+
+  .content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 6rem;
+  }
+
+  .slide-header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    width: 100%;
+
+    h6 {
+      margin: 0;
+      text-transform: uppercase;
+      font-size: 1.4rem;
+      letter-spacing: 4px;
+      font-weight: 600;
+      -webkit-font-smoothing: antialiased;
+      justify-self: center;
+    }
+
+    img {
+      width: 60px;
+      margin-right: 2rem;
+    }
+  }
+
+  .slide-footer {
+    position: relative;
+    font-size: 1.4rem;
+
+    // &::before {
+    //   content: "";
+    //   position: absolute;
+    // }
+    &::before {
+      content: "";
+      position: absolute;
+      border-top: 2px solid black;
+      width: 70px;
+      bottom: -8px;
+      left: -60px;
+    }
+  }
+
+  .slide-title {
+    font-size: 4rem;
+    font-weight: 400;
+    margin: 0;
+    position: relative;
+    top: -28px;
+  }
+
+  .injectedContent {
+    // TODO make these global styles
+    background-color: #f2f2f2;
+    font-size: 1.8rem;
+    line-height: 2;
+    overflow-y: scroll;
+    padding: 8rem 3rem;
+    //
+    display: grid;
+    justify-content: center;
+
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #444;
+      margin: 0;
+
+      ~ pre {
+        padding-top: 0;
+      }
+    }
+
+    pre {
+      line-height: 1.21;
+      padding: 15% 3rem;
+    }
+  }
+}

@@ -23,7 +23,9 @@ export default function DeckTitle({
     <Slide title="DeckTitle">
       <div className="content">
         <header>
-          <h4>{(frontmatter as IFrontmatter).author}</h4>
+          <h4 className="deck-title-author">
+            {(frontmatter as IFrontmatter).author}
+          </h4>
           <h1 className="deck-title-heading">
             {(frontmatter as IFrontmatter).title}
           </h1>
