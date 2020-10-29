@@ -6,3 +6,4 @@ Gatsby Deck
 Inbox:
   - settings page
   - side menu w/ list of slides in every slide
+  - move arrowKeyNavigator to layout

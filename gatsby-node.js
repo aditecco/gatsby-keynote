@@ -52,10 +52,12 @@ exports.createPages = async ({ graphql, actions }) => {
               id
               html
               frontmatter {
-                order
-                title
+                author
+                deck
                 template
                 timestamp
+                title
+                order
               }
             }
           }
