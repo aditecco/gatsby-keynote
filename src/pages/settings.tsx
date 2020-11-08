@@ -2,7 +2,13 @@
 Settings
 --------------------------------- */
 
-import React, { ChangeEvent, ReactElement, useContext, useState } from "react"
+import React, {
+  ChangeEvent,
+  ReactElement,
+  useContext,
+  useEffect,
+  useState,
+} from "react"
 import { initialSettings, SettingsContext } from "../layouts/Layout"
 import { ISettings } from "../types"
 import { Link } from "gatsby"
@@ -12,6 +18,7 @@ interface OwnProps {}
 export default function Settings({}: OwnProps): ReactElement {
   const [settings, updateSettings] = useContext(SettingsContext)
   const [formState, setFormState] = useState(initialSettings)
+  const [disabled, setDisabled] = useState({})
 
   // const flatSettings = {
   //   ...settings.colors,
@@ -40,26 +47,54 @@ export default function Settings({}: OwnProps): ReactElement {
     }))
   }
 
+  useEffect(() => {
+    settings &&
+      Object.keys(settings).map((setting, i) => {
+        setDisabled(prevState => ({
+          ...prevState,
+          [setting]: !!settings[setting],
+        }))
+      })
+  }, [])
+
   return (
     <div>
       hey
       <form action="#" className="settings-form" onSubmit={handleSubmit}>
         <Link to="/">&larr; Home</Link>
 
-        {Object.keys(initialSettings).map((k, i) => (
-          // TODO Object.entries won't compile in TS!
+        {Object.keys(settings).map((setting, i) => {
+          const isDisabled = disabled[setting]
 
-          <fieldset key={k + i}>
-            <label htmlFor={k}>{k}</label>
-            <input
-              name={k}
-              type="text"
-              placeholder={settings[k] ? settings[k] : k}
-              disabled={!!settings[k]}
-              onChange={handleChange}
-            />
-          </fieldset>
-        ))}
+          return (
+            // TODO Object.entries won't compile in TS!
+
+            <fieldset key={setting + i}>
+              <label htmlFor={setting}>{setting}</label>
+              <input
+                name={setting}
+                type="text"
+                placeholder={isDisabled ? settings[setting] : setting}
+                disabled={isDisabled}
+                onChange={handleChange}
+              />
+
+              {isDisabled && (
+                <button
+                  type="button"
+                  onClick={_ =>
+                    setDisabled(settings => ({
+                      ...settings,
+                      [setting]: false,
+                    }))
+                  }
+                >
+                  Enable
+                </button>
+              )}
+            </fieldset>
+          )
+        })}
 
         <button type="submit">submit</button>
       </form>

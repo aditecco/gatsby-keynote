@@ -4,7 +4,7 @@ Blank
 
 import React, { ReactElement } from "react"
 import Slide from "../../layouts/Slide/Slide"
-import logo from "../../../static/custom-theme-assets/tlk-logo.png"
+// import logo from "../../../static/"
 import { IGatsbyInjectedProps } from "../../types"
 import "./Blank.scss"
 
@@ -26,7 +26,7 @@ export default function Blank({
     <Slide title="Blank">
       <div className="content">
         <header className="slide-header">
-          <img src={logo} alt="" />
+          <img src={""} alt="" />
           <h6>{deck}</h6>
         </header>
 
