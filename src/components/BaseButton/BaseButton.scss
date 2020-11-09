@@ -1,0 +1,45 @@
+/* ========================
+.BaseButton
+======================== */
+
+@import "../../styles/partials/theme";
+
+.BaseButton {
+  display: inline-block;
+  min-width: 100px;
+  padding: $padding / 2;
+  border-radius: $radius;
+  border: 2px solid transparent;
+  text-decoration: none;
+  // TODO
+  // replace other instances
+  // of flat-blue-1 w/ accent var
+  background-color: $accent;
+  font-size: 1.4rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  cursor: pointer;
+  transition: all 500ms ease;
+
+  &:hover {
+    // background-color: $hover; TODO
+    color: white; // we force it to prevent overriding by antd
+  }
+
+  &.button--naked {
+    background-color: transparent;
+    color: $accent;
+    // …hover
+  }
+
+  &.button--outline {
+    @extend .button--naked;
+    border: 2px solid $accent;
+
+    &:hover {
+      // border: 2px solid $hover; TODO
+      // color: $hover; TODO
+    }
+  }
+}
