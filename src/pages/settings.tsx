@@ -62,10 +62,16 @@ export default function Settings({}: OwnProps): ReactElement {
 
   return (
     <Slide title="Settings">
-      <h3>Settings</h3>
+      <div className="back-button-container">
+        <Link to="/" className="back-button">
+          <i className="material-icons">arrow_back</i>
+          Home
+        </Link>
+      </div>
 
       <form action="#" className="settings-form" onSubmit={handleSubmit}>
-        <Link to="/">&larr; Home</Link>
+        <h3 className="page-title">Settings</h3>
+
         {Object.keys(settings).map((setting, i) => {
           const isDisabled = disabled[setting]
 
@@ -83,8 +89,10 @@ export default function Settings({}: OwnProps): ReactElement {
               value={formState[setting]}
             >
               {isDisabled && (
-                <button
-                  type="button"
+                <BaseButton
+                  // type="button"
+                  style={{ color: "darkseagreen" }}
+                  className="button--naked"
                   onClick={_ =>
                     setDisabled(settings => ({
                       ...settings,
@@ -93,7 +101,7 @@ export default function Settings({}: OwnProps): ReactElement {
                   }
                 >
                   Enable
-                </button>
+                </BaseButton>
               )}
             </InputField>
           )

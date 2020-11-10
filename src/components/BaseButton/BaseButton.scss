@@ -14,7 +14,7 @@
   // TODO
   // replace other instances
   // of flat-blue-1 w/ accent var
-  background-color: $accent;
+  background-color: $accent-02;
   font-size: 1.4rem;
   text-align: center;
   text-transform: uppercase;
@@ -23,19 +23,20 @@
   transition: all 500ms ease;
 
   &:hover {
-    // background-color: $hover; TODO
+    background-color: darken($accent-02, 10%);
     color: white; // we force it to prevent overriding by antd
   }
 
   &.button--naked {
     background-color: transparent;
-    color: $accent;
+    // color: $accent-02;
+    color: inherit;
     // …hover
   }
 
   &.button--outline {
     @extend .button--naked;
-    border: 2px solid $accent;
+    border: 2px solid $accent-02;
 
     &:hover {
       // border: 2px solid $hover; TODO

@@ -4,6 +4,7 @@ common
 
 @import "./vendor";
 @import "./theme";
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 @include init(false, true);
 
