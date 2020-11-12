@@ -3,7 +3,7 @@
 *******************/
 
 // js
-import React, { ReactElement, ReactEventHandler, ReactChildren } from "react"
+import React, { CSSProperties, ReactElement, ReactEventHandler } from "react"
 import "./BaseButton.scss"
 
 // components
@@ -13,14 +13,13 @@ import "./BaseButton.scss"
 // styles
 
 interface IOwnProps {
-  // TODO improve
   className?: string | "button--naked" | "button--outline"
   onClick?: ReactEventHandler
   onKeyDown?: ReactEventHandler
   label?: string
-  href?: string
-  style?
+  style?: CSSProperties
   children?
+  type?: "submit" | "reset" | "button"
 }
 
 function BaseButton({
@@ -28,24 +27,23 @@ function BaseButton({
   onClick,
   onKeyDown,
   label,
-  href,
   style,
   children,
+  type,
 }: IOwnProps): ReactElement {
   const root = "BaseButton"
 
   return (
-    // TODO convert to <button>
-    <a
-      className={`${root} ${className}`}
-      href={href}
+    <button
+      type={type ?? "button"}
+      className={`${root}${className ? " " + className : ""}`}
       onClick={onClick}
       onKeyDown={onKeyDown}
       style={style}
     >
       {label}
       {children}
-    </a>
+    </button>
   )
 }
 

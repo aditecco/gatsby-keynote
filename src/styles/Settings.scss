@@ -43,6 +43,9 @@ Settings
       border-bottom: 2px solid whitesmoke;
       margin-bottom: 2rem;
 
+      &[disabled] {
+        color: rgba(black, 0.4);
+      }
       // &:not([disabled]) {
       //   margin-bottom: 2rem;
       // }

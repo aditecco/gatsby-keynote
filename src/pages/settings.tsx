@@ -30,6 +30,7 @@ export default function Settings({}: OwnProps): ReactElement {
   //   ...settings["asset-urls"],
   // }
 
+  // handleChange
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     const {
       target: { value, name },
@@ -41,6 +42,7 @@ export default function Settings({}: OwnProps): ReactElement {
     }))
   }
 
+  // handleSubmit
   function handleSubmit(e) {
     e.preventDefault()
 
@@ -69,7 +71,7 @@ export default function Settings({}: OwnProps): ReactElement {
         </Link>
       </div>
 
-      <form action="#" className="settings-form" onSubmit={handleSubmit}>
+      <form className="settings-form" onSubmit={handleSubmit}>
         <h3 className="page-title">Settings</h3>
 
         {Object.keys(settings).map((setting, i) => {
@@ -90,8 +92,7 @@ export default function Settings({}: OwnProps): ReactElement {
             >
               {isDisabled && (
                 <BaseButton
-                  // type="button"
-                  style={{ color: "darkseagreen" }}
+                  style={{ color: "#27ae60" }}
                   className="button--naked"
                   onClick={_ =>
                     setDisabled(settings => ({
@@ -107,7 +108,7 @@ export default function Settings({}: OwnProps): ReactElement {
           )
         })}
 
-        <BaseButton>submit</BaseButton>
+        <BaseButton type="submit">submit</BaseButton>
       </form>
     </Slide>
   )
