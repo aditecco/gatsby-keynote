@@ -39,6 +39,13 @@ Settings
     border-radius: 4px;
     box-shadow: 0 20px 40px 10px rgba(black, 0.25);
 
+    .InputField:last-of-type {
+      > .settings-field {
+        border-bottom: 0;
+        margin-bottom: 3rem;
+      }
+    }
+
     .settings-field {
       border-bottom: 2px solid whitesmoke;
       margin-bottom: 2rem;
