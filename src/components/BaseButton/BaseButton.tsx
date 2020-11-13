@@ -20,6 +20,7 @@ interface IOwnProps {
   style?: CSSProperties
   children?
   type?: "submit" | "reset" | "button"
+  disabled?: boolean
 }
 
 function BaseButton({
@@ -30,12 +31,14 @@ function BaseButton({
   style,
   children,
   type,
+  disabled,
 }: IOwnProps): ReactElement {
   const root = "BaseButton"
 
   return (
     <button
       type={type ?? "button"}
+      disabled={disabled}
       className={`${root}${className ? " " + className : ""}`}
       onClick={onClick}
       onKeyDown={onKeyDown}
