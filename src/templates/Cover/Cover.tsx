@@ -43,7 +43,10 @@ export default function Cover({ logo, withMenu }: Props): ReactElement {
 
       {withMenu && (
         <nav className="settings-menu">
-          <Link to="/settings">Settings</Link>
+          <Link to="/settings">
+            <i className="material-icons">settings</i>
+            Settings
+          </Link>
         </nav>
       )}
     </Slide>
