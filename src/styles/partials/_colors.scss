@@ -6,3 +6,10 @@ $accent-01: #f1c40f;
 $accent-02: #e74c3c;
 $accent-03: #444;
 $body-01: black;
+
+:export {
+  accent01: $accent-01;
+  accent02: $accent-02;
+  accent03: $accent-03;
+  body01: $body-01;
+}

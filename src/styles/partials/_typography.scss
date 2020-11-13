@@ -5,3 +5,7 @@ typography
 // @import url("");
 
 $font: "Helvetica, Arial", sans-serif;
+
+:export {
+  font: $font;
+}
