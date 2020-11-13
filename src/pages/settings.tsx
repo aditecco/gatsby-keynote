@@ -14,6 +14,7 @@ import BaseButton from "../components/BaseButton/BaseButton"
 import InputField from "../components/InputField/InputField"
 import { SettingsContext } from "../layouts/Layout"
 import Slide from "../layouts/Slide/Slide"
+import { ISettings } from "../types"
 
 interface OwnProps {}
 
@@ -55,7 +56,14 @@ export default function Settings({}: OwnProps): ReactElement {
   }, [])
 
   return (
-    <Slide title="Settings">
+    <Slide
+      title="Settings"
+      style={{
+        background: `linear-gradient(45deg, ${
+          (settings as ISettings)["accent-primary"]
+        }, ${(settings as ISettings)["accent-secondary"]})`,
+      }}
+    >
       <div className="back-button-container">
         <Link to="/" className="back-button">
           <i className="material-icons">arrow_back</i>
