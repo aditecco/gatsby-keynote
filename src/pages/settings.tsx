@@ -2,6 +2,7 @@
 Settings
 --------------------------------- */
 
+import { Link } from "gatsby"
 import React, {
   ChangeEvent,
   ReactElement,
@@ -9,26 +10,16 @@ import React, {
   useEffect,
   useState,
 } from "react"
-import { initialSettings, SettingsContext } from "../layouts/Layout"
-import { ISettings } from "../types"
-import { Link } from "gatsby"
-import Slide from "../layouts/Slide/Slide"
-import InputField from "../components/InputField/InputField"
 import BaseButton from "../components/BaseButton/BaseButton"
+import InputField from "../components/InputField/InputField"
+import { SettingsContext } from "../layouts/Layout"
+import Slide from "../layouts/Slide/Slide"
 
 interface OwnProps {}
 
 export default function Settings({}: OwnProps): ReactElement {
   const [settings, updateSettings] = useContext(SettingsContext)
-  const [formState, setFormState] = useState(initialSettings)
   const [disabled, setDisabled] = useState({})
-
-  // const flatSettings = {
-  //   ...settings.colors,
-  //   ...settings.typography,
-  //   ...settings.animation,
-  //   ...settings["asset-urls"],
-  // }
 
   // handleChange
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
@@ -36,7 +27,7 @@ export default function Settings({}: OwnProps): ReactElement {
       target: { value, name },
     } = e
 
-    setFormState(prevInput => ({
+    updateSettings(prevInput => ({
       ...prevInput,
       [name]: value,
     }))
@@ -46,20 +37,21 @@ export default function Settings({}: OwnProps): ReactElement {
   function handleSubmit(e) {
     e.preventDefault()
 
-    updateSettings(settings => ({
-      ...settings,
-      ...formState,
-    }))
+    handleDisabled()
+  }
+
+  // handleDisabled
+  function handleDisabled() {
+    Object.keys(settings).map((setting, i) => {
+      setDisabled(prevState => ({
+        ...prevState,
+        [setting]: !!settings[setting],
+      }))
+    })
   }
 
   useEffect(() => {
-    settings &&
-      Object.keys(settings).map((setting, i) => {
-        setDisabled(prevState => ({
-          ...prevState,
-          [setting]: !!settings[setting],
-        }))
-      })
+    settings && handleDisabled()
   }, [])
 
   return (
@@ -88,7 +80,7 @@ export default function Settings({}: OwnProps): ReactElement {
               placeholder={isDisabled ? settings[setting] : setting}
               disabled={isDisabled}
               onChange={handleChange}
-              value={formState[setting]}
+              value={settings[setting]}
             >
               {isDisabled && (
                 <BaseButton
@@ -108,7 +100,12 @@ export default function Settings({}: OwnProps): ReactElement {
           )
         })}
 
-        <BaseButton type="submit">submit</BaseButton>
+        <BaseButton
+          type="submit"
+          disabled={Object.values(disabled).every(disabled => disabled)}
+        >
+          submit
+        </BaseButton>
       </form>
     </Slide>
   )
