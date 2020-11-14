@@ -19,7 +19,8 @@ export const initialSettings: ISettings = {
   "secondary-logo": "",
 }
 
-// SettingsContext
+// Contexts
+export const SlidesContext = React.createContext(null)
 export const SettingsContext = React.createContext(null)
 
 // Layout
@@ -46,46 +47,48 @@ const Layout = ({ location, children }) => {
   AKNinit && console?.log("***** AKN is active. *****")
 
   return (
-    <SettingsContext.Provider value={useState<ISettings>(initialSettings)}>
-      <SettingsContext.Consumer>
-        {settings => (
-          <TransitionProvider
+    <SlidesContext.Provider value={SLIDES}>
+      <SettingsContext.Provider value={useState<ISettings>(initialSettings)}>
+        <SettingsContext.Consumer>
+          {settings => (
+            <TransitionProvider
+              location={location}
+              mode={settings?.transition ?? "immediate"}
+              /*
             location={location}
-            mode={settings?.transition ?? "immediate"}
-            /*
-      location={location}
-      mode="immediate"
-      enter={{
-        opacity: 0,
-        transform: "translate3d(0,20vh,0) scale3d(1, 1, 1) rotate(0deg)",
-        config: {
-          mass: 1,
-          tension: 210,
-          friction: 20,
-          clamp: true
-        },
-        onRest: () => {
-          console.log("Hello, World!");
-        }
-      }}
-      usual={{
-        opacity: 1,
-        transform: "translate3d(0vh,0vh,0) scale3d(1, 1, 1) rotate(0deg)"
-      }}
-      leave={{
-        opacity: 0,
-        transform: "translate3d(0vh,0vh,0) scale3d(2, 2, 1) rotate(180deg)",
-        config: {
-          duration: 1000
-        }
-      }}
-     */
-          >
-            <TransitionViews>{children}</TransitionViews>
-          </TransitionProvider>
-        )}
-      </SettingsContext.Consumer>
-    </SettingsContext.Provider>
+            mode="immediate"
+            enter={{
+              opacity: 0,
+              transform: "translate3d(0,20vh,0) scale3d(1, 1, 1) rotate(0deg)",
+              config: {
+                mass: 1,
+                tension: 210,
+                friction: 20,
+                clamp: true
+              },
+              onRest: () => {
+                console.log("Hello, World!");
+              }
+            }}
+            usual={{
+              opacity: 1,
+              transform: "translate3d(0vh,0vh,0) scale3d(1, 1, 1) rotate(0deg)"
+            }}
+            leave={{
+              opacity: 0,
+              transform: "translate3d(0vh,0vh,0) scale3d(2, 2, 1) rotate(180deg)",
+              config: {
+                duration: 1000
+              }
+            }}
+          */
+            >
+              <TransitionViews>{children}</TransitionViews>
+            </TransitionProvider>
+          )}
+        </SettingsContext.Consumer>
+      </SettingsContext.Provider>
+    </SlidesContext.Provider>
   )
 }
 

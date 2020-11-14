@@ -1,0 +1,25 @@
+/* ---------------------------------
+Navigator
+--------------------------------- */
+
+@import "../../styles/partials/theme";
+
+.Navigator {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  min-width: 100px;
+  padding: 2rem;
+  background-color: rgba(black, 0.6);
+  border-radius: $radius;
+  color: whitesmoke;
+  transition: all 0.3s ease;
+
+  .navigator-button-wrapper {
+    @extend %resetAnchors;
+
+    + .navigator-button-wrapper {
+      margin-left: 1rem;
+    }
+  }
+}
