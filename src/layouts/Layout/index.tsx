@@ -2,11 +2,13 @@
 Layout
 --------------------------------- */
 
-import React, { useState } from "react"
+import { graphql, useStaticQuery } from "gatsby"
 import { TransitionProvider, TransitionViews } from "gatsby-plugin-transitions"
-import { ISettings } from "../../types"
+import React, { useState } from "react"
+import useArrowKeyNavigator from "../../hooks/useArrowKeyNavigator"
 import cssColors from "../../styles/partials/_colors.scss"
 import cssTypography from "../../styles/partials/_typography.scss"
+import { ISettings } from "../../types"
 
 export const initialSettings: ISettings = {
   "accent-primary": cssColors?.accent01 ?? "#dadada",
@@ -17,9 +19,32 @@ export const initialSettings: ISettings = {
   "secondary-logo": "",
 }
 
+// SettingsContext
 export const SettingsContext = React.createContext(null)
 
+// Layout
 const Layout = ({ location, children }) => {
+  // get the slides
+  const {
+    allFile: { nodes: slides },
+  } = useStaticQuery(graphql`
+    query {
+      allFile(filter: { sourceInstanceName: { eq: "slides" } }) {
+        nodes {
+          id
+          name
+        }
+      }
+    }
+  `)
+
+  // process slides for AKN
+  const SLIDES = slides?.map?.((_, i) => (i === 0 ? `/` : `/slides/${i}`)) ?? []
+
+  // init AKN
+  const [AKNinit] = useArrowKeyNavigator(SLIDES)
+  AKNinit && console?.log("***** AKN is active. *****")
+
   return (
     <SettingsContext.Provider value={useState<ISettings>(initialSettings)}>
       <SettingsContext.Consumer>
