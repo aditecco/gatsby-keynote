@@ -3,6 +3,7 @@ Settings
 --------------------------------- */
 
 import { Link } from "gatsby"
+import Switch from "react-ios-switch"
 import React, {
   ChangeEvent,
   ReactElement,
@@ -89,20 +90,25 @@ export default function Settings({}: OwnProps): ReactElement {
               onChange={handleChange}
               value={settings[setting]}
             >
-              {isDisabled && (
-                <BaseButton
-                  style={{ color: "#27ae60" }}
-                  className="button--naked"
-                  onClick={_ =>
-                    setDisabled(settings => ({
-                      ...settings,
-                      [setting]: false,
-                    }))
-                  }
-                >
-                  Edit
-                </BaseButton>
-              )}
+              <Switch
+                checked={!isDisabled}
+                className={undefined}
+                disabled={undefined}
+                handleColor="white"
+                name={undefined}
+                offColor="white"
+                onChange={_ =>
+                  setDisabled(settings => ({
+                    ...settings,
+                    [setting]: false,
+                  }))
+                }
+                onColor="rgb(76, 217, 100)"
+                pendingOffColor={undefined}
+                pendingOnColor={undefined}
+                readOnly={undefined}
+                style={undefined}
+              />
             </InputField>
           )
         })}
