@@ -55,14 +55,15 @@ export default function useArrowKeyNavigator(slides: string[]) {
     console?.info("arrowKeyNavigator: destroyed event listener.")
   }
 
+  // init on mount
   useEffect(() => {
-    if (document?.body) {
+    if (slides?.length && document?.body) {
       attachListener()
 
       setInitiated(true)
     }
 
-    return () => document?.body && destroyListener()
+    return () => slides?.length && document?.body && destroyListener()
   }, [])
 
   return [
