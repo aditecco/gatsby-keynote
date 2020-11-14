@@ -3,6 +3,8 @@ Slide
 --------------------------------- */
 
 import React, { CSSProperties, ReactElement, ReactNode, useEffect } from "react"
+import Navigator from "../../components/Navigator/Navigator"
+import { SlidesContext } from "../Layout"
 import "./Slide.scss"
 
 interface IOwnProps {
@@ -16,13 +18,15 @@ export default function Slide({
   title,
   style,
 }: IOwnProps): ReactElement {
-  // useEffect(() => {
-  //   ;(document.querySelector(".Slide") as HTMLDivElement).style.left = "0"
-  // }, [])
-
   return (
-    <div className={"Slide " + title} style={style ? style : {}}>
-      <main className="slide-content">{children}</main>
-    </div>
+    <SlidesContext.Consumer>
+      {slides => (
+        <div className={"Slide " + title} style={style ? style : {}}>
+          <main className="slide-content">{children}</main>
+
+          <Navigator slides={slides} />
+        </div>
+      )}
+    </SlidesContext.Consumer>
   )
 }
