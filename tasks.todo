@@ -2,8 +2,20 @@
 Gatsby Deck
 ===========
 
-
 Inbox:
-  - settings page
-  - side menu w/ list of slides in every slide
-  - move arrowKeyNavigator to layout
+  - …
+  - finalize slide templates
+  - create example content
+    - logo
+    - images
+    - text
+  - map settings to slides
+    - select for predefined options
+  - investigate key collision
+  - publish as Gatsby theme/starter
+
+Archive:
+  ✔ setup deploy @done(20-11-14 20:44) @project(Inbox)
+  ✔ settings page @done(20-11-14 20:43) @project(Inbox)
+  ✔ side menu w/ list of slides in every slide @done(20-11-14 20:43) @project(Inbox)
+  ✔ move arrowKeyNavigator to layout @done(20-11-14 20:43) @project(Inbox)
