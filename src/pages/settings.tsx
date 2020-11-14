@@ -111,7 +111,7 @@ export default function Settings({}: OwnProps): ReactElement {
           type="submit"
           disabled={Object.values(disabled).every(disabled => disabled)}
         >
-          submit
+          save
         </BaseButton>
       </form>
     </Slide>
