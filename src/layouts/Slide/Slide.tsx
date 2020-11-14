@@ -2,8 +2,9 @@
 Slide
 --------------------------------- */
 
-import React, { CSSProperties, ReactElement, ReactNode, useEffect } from "react"
+import React, { CSSProperties, ReactElement, ReactNode } from "react"
 import Navigator from "../../components/Navigator/Navigator"
+import SettingsMenu from "../../components/SettingsMenu/SettingsMenu"
 import { SlidesContext } from "../Layout"
 import "./Slide.scss"
 
@@ -25,6 +26,8 @@ export default function Slide({
           <main className="slide-content">{children}</main>
 
           <Navigator slides={slides} />
+
+          <SettingsMenu from={title} />
         </div>
       )}
     </SlidesContext.Consumer>

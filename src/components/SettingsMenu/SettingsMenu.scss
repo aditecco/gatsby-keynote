@@ -1,0 +1,34 @@
+/* ---------------------------------
+SettingsMenu
+--------------------------------- */
+
+@import "../../styles/partials/_theme";
+
+.SettingsMenu {
+  $pad: 2rem;
+
+  position: fixed;
+  right: 0;
+  padding: $pad;
+  top: calc(100vh - ((#{$pad} * 2) + 20px));
+
+  a {
+    @extend %resetAnchors;
+    padding: 1rem;
+    font-size: 1.5rem;
+    background-color: rgba(black, 0.15);
+    border-radius: $radius;
+    color: rgba(white, 0.5);
+
+    i.material-icons {
+      font-size: 1.8rem;
+      vertical-align: bottom;
+      margin-right: 0.4rem;
+    }
+
+    &:hover {
+      color: whitesmoke;
+      background-color: rgba(black, 0.6);
+    }
+  }
+}

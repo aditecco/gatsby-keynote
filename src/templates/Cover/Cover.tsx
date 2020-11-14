@@ -41,14 +41,14 @@ export default function Cover({ logo, withMenu }: Props): ReactElement {
         Cover
       </h1>
 
-      {withMenu && (
+      {/* {withMenu && (
         <nav className="settings-menu">
           <Link to="/settings">
             <i className="material-icons">settings</i>
             Settings
           </Link>
         </nav>
-      )}
+      )} */}
     </Slide>
   )
 }
