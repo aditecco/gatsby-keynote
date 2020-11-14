@@ -1,0 +1,38 @@
+/* ---------------------------------
+InputField
+--------------------------------- */
+
+@import "../../styles/partials/theme";
+
+.InputField {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  label {
+    display: none;
+  }
+
+  .settings-field {
+    width: 100%;
+    padding: 12px 10px;
+    border: none;
+    font-size: inherit;
+    background-color: transparent;
+    border-left: 3px solid transparent;
+
+    &:focus {
+      // outline: 2px solid rgba($accent-01, 0.8);
+      outline: none;
+      border-left: 3px solid $accent-02;
+    }
+  }
+
+  // .urlInput {
+  //   border-bottom: 1px solid rgba($flat-gray-4, 0.2);
+  // }
+
+  &Children {
+    padding: 12px 10px;
+  }
+}

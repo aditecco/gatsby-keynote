@@ -1,11 +1,11 @@
 module.exports = {
   // metadata
   siteMetadata: {
-    title: ``,
-    description: ``,
-    author: ``,
-    version: ``,
-    currentYear: ``,
+    title: `Gatsby Deck`,
+    description: `Create a slide deck with Gatsby!`,
+    author: `Alessandro Di Tecco`,
+    version: `0.0.0`,
+    currentYear: `2020`,
   },
 
   // plugins

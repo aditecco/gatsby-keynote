@@ -1,18 +1,18 @@
 /* ---------------------------------
-ThreeCols
+Cols
 --------------------------------- */
 
 import React, { ReactElement } from "react"
 import Slide from "../../layouts/Slide/Slide"
 import { IGatsbyInjectedProps } from "../../types"
 // import logo from ""
-import "./ThreeCols.scss"
+import "./Cols.scss"
 
 interface OwnProps {}
 
 type Props = OwnProps & IGatsbyInjectedProps
 
-export default function ThreeCols({
+export default function Cols({
   pageContext: { node },
 }: Props): ReactElement | string {
   const {
@@ -22,7 +22,7 @@ export default function ThreeCols({
   } = node
 
   return (
-    <Slide title="ThreeCols">
+    <Slide title="Cols">
       <div className="slide-frame">
         <header className="slide-header">
           <img src={""} alt="" />

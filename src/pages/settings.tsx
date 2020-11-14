@@ -2,67 +2,118 @@
 Settings
 --------------------------------- */
 
-import React, { ChangeEvent, ReactElement, useContext, useState } from "react"
-import { initialSettings, SettingsContext } from "../layouts/Layout"
-import { ISettings } from "../types"
 import { Link } from "gatsby"
+import React, {
+  ChangeEvent,
+  ReactElement,
+  useContext,
+  useEffect,
+  useState,
+} from "react"
+import BaseButton from "../components/BaseButton/BaseButton"
+import InputField from "../components/InputField/InputField"
+import { SettingsContext } from "../layouts/Layout"
+import Slide from "../layouts/Slide/Slide"
+import { ISettings } from "../types"
 
 interface OwnProps {}
 
 export default function Settings({}: OwnProps): ReactElement {
   const [settings, updateSettings] = useContext(SettingsContext)
-  const [formState, setFormState] = useState(initialSettings)
+  const [disabled, setDisabled] = useState({})
 
-  // const flatSettings = {
-  //   ...settings.colors,
-  //   ...settings.typography,
-  //   ...settings.animation,
-  //   ...settings["asset-urls"],
-  // }
-
+  // handleChange
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     const {
       target: { value, name },
     } = e
 
-    setFormState(prevInput => ({
+    updateSettings(prevInput => ({
       ...prevInput,
       [name]: value,
     }))
   }
 
+  // handleSubmit
   function handleSubmit(e) {
     e.preventDefault()
 
-    updateSettings(settings => ({
-      ...settings,
-      ...formState,
-    }))
+    handleDisabled()
   }
 
+  // handleDisabled
+  function handleDisabled() {
+    Object.keys(settings).map((setting, i) => {
+      setDisabled(prevState => ({
+        ...prevState,
+        [setting]: !!settings[setting],
+      }))
+    })
+  }
+
+  useEffect(() => {
+    settings && handleDisabled()
+  }, [])
+
   return (
-    <div>
-      hey
-      <form action="#" className="settings-form" onSubmit={handleSubmit}>
-        <Link to="/">&larr; Home</Link>
+    <Slide
+      title="Settings"
+      style={{
+        background: `linear-gradient(45deg, ${
+          (settings as ISettings)["accent-primary"]
+        }, ${(settings as ISettings)["accent-secondary"]})`,
+      }}
+    >
+      <form className="settings-form" onSubmit={handleSubmit}>
+        <header className="settings-form-header">
+          <Link to="/" className="back-button">
+            <i className="material-icons">arrow_back</i>
+          </Link>
 
-        {Object.keys(initialSettings).map((k, i) => (
-          // TODO Object.entries won't compile in TS!
+          <h3 className="page-title">Settings</h3>
+        </header>
 
-          <fieldset key={k + i}>
-            <label htmlFor={k}>{k}</label>
-            <input
-              name={k}
+        {Object.keys(settings).map((setting, i) => {
+          const isDisabled = disabled[setting]
+
+          return (
+            // TODO Object.entries won't compile in TS!
+
+            <InputField
+              className="settings-field"
+              key={setting + i}
+              name={setting}
               type="text"
-              placeholder={settings[k] ? settings[k] : k}
-              disabled={!!settings[k]}
+              placeholder={isDisabled ? settings[setting] : setting}
+              disabled={isDisabled}
               onChange={handleChange}
-            />
-          </fieldset>
-        ))}
+              value={settings[setting]}
+            >
+              {isDisabled && (
+                <BaseButton
+                  style={{ color: "#27ae60" }}
+                  className="button--naked"
+                  onClick={_ =>
+                    setDisabled(settings => ({
+                      ...settings,
+                      [setting]: false,
+                    }))
+                  }
+                >
+                  Edit
+                </BaseButton>
+              )}
+            </InputField>
+          )
+        })}
 
-        <button type="submit">submit</button>
+        <BaseButton
+          type="submit"
+          disabled={Object.values(disabled).every(disabled => disabled)}
+        >
+          save
+        </BaseButton>
       </form>
-    </div>
+    </Slide>
   )
 }

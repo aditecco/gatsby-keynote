@@ -4,6 +4,7 @@ common
 
 @import "./vendor";
 @import "./theme";
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 @include init(false, true);
 
@@ -17,4 +18,63 @@ common
 .emj {
   font-size: 3.3rem;
   vertical-align: middle;
+}
+
+.injectedContent {
+  // TODO make these global styles
+  // background-color: #e1e1e1;
+  // font-size: 1.8rem;
+  // line-height: 2;
+  // overflow-y: scroll;
+  // padding: 2rem 3rem;
+
+  ul,
+  ol {
+    // yes, markdown can output this
+    p {
+      margin: 0;
+    }
+  }
+
+  ul,
+  ol {
+    code {
+      background-color: rgba(white, 0.2);
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+  }
+
+  ul {
+    li {
+      list-style-type: square;
+      margin-bottom: 1.8rem;
+      line-height: 1.5;
+    }
+
+    ul {
+      li {
+      }
+    }
+  }
+
+  pre {
+  }
+
+  code {
+    color: rebeccapurple;
+    line-height: normal;
+  }
+
+  a {
+    color: black;
+  }
+
+  // we highjack the strong tag
+  // since we can't underline in markdown
+  strong {
+    letter-spacing: 1px;
+    font-weight: 400;
+    text-decoration: underline;
+  }
 }
