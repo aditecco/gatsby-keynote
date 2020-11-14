@@ -25,11 +25,17 @@ export default function Navigator({ slides }: IOwnProps): ReactElement {
         </button>
       </div>
 
+      {visible && <span className="separator">&middot;</span>}
+
       {visible && (
         <ul className="navigator-button-container">
           {slides?.map?.((slide, i) => (
             <li key={i} className="navigator-button-wrapper">
-              <Link to={slide} className="navigator-button-link">
+              <Link
+                to={slide}
+                className="navigator-button-link"
+                onMouseOver={_ => console.log("TODO create a tooltip")}
+              >
                 <button type="button">{String(i)}</button>
               </Link>
             </li>

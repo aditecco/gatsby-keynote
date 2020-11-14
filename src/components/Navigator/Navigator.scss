@@ -57,6 +57,10 @@ Navigator
     }
   }
 
+  .separator {
+    margin: 0 0.6rem;
+  }
+
   .navigator-button-container {
     @include resetBox(0, 0, true);
     @include flex(row, space-evenly, center);
