@@ -25,7 +25,11 @@ Navigator
 
     &:hover {
       color: whitesmoke;
-      transform: scale(1.3);
+      // transform: scale(1.3);
+    }
+
+    i.material-icons {
+      margin-top: 3px;
     }
   }
 
@@ -40,7 +44,7 @@ Navigator
 
     .navigator-controls {
       button {
-        padding: 1rem;
+        padding: 0.6rem 1.2rem;
 
         &:hover {
           transform: none;
@@ -50,11 +54,6 @@ Navigator
   }
 
   .navigator-controls {
-    display: inline-block;
-
-    button {
-      margin-bottom: -3px;
-    }
   }
 
   .separator {

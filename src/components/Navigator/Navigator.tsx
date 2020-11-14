@@ -36,7 +36,15 @@ export default function Navigator({ slides }: IOwnProps): ReactElement {
                 className="navigator-button-link"
                 onMouseOver={_ => console.log("TODO create a tooltip")}
               >
-                <button type="button">{String(i)}</button>
+                <button type="button">
+                  {i === 0 ? (
+                    <i className="material-icons">first_page</i>
+                  ) : i === slides?.length - 1 ? (
+                    <i className="material-icons">last_page</i>
+                  ) : (
+                    String(i)
+                  )}
+                </button>
               </Link>
             </li>
           )) ?? []}
