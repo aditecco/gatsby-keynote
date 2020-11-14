@@ -3,8 +3,7 @@ Navigator
 --------------------------------- */
 
 import { Link } from "gatsby"
-import React, { ReactElement } from "react"
-import BaseButton from "../../components/BaseButton/BaseButton"
+import React, { ReactElement, useState } from "react"
 import "./Navigator.scss"
 
 interface IOwnProps {
@@ -12,19 +11,31 @@ interface IOwnProps {
 }
 
 export default function Navigator({ slides }: IOwnProps): ReactElement {
+  const [visible, setVisible] = useState(false)
+
+  function handleClick() {
+    setVisible(visible => !visible)
+  }
+
   return (
-    <nav className="Navigator">
+    <nav className={`Navigator${!visible ? " Navigator--hidden" : ""}`}>
       <div className="navigator-controls">
-        <BaseButton className="button--naked">
-          <i className="material-icons">close</i>
-        </BaseButton>
+        <button onClick={handleClick}>
+          <i className="material-icons">{visible ? "close" : "layers"}</i>
+        </button>
       </div>
 
-      {slides?.map?.((slide, i) => (
-        <Link to={slide} key={i} className="navigator-button-wrapper">
-          <BaseButton className="button--naked">{String(i)}</BaseButton>
-        </Link>
-      ))}
+      {visible && (
+        <ul className="navigator-button-container">
+          {slides?.map?.((slide, i) => (
+            <li key={i} className="navigator-button-wrapper">
+              <Link to={slide} className="navigator-button-link">
+                <button type="button">{String(i)}</button>
+              </Link>
+            </li>
+          )) ?? []}
+        </ul>
+      )}
     </nav>
   )
 }

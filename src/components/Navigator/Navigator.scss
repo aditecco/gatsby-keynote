@@ -9,14 +9,64 @@ Navigator
   top: 20px;
   right: 20px;
   min-width: 100px;
-  padding: 2rem;
+  padding: 0 1rem;
   background-color: rgba(black, 0.6);
   border-radius: $radius;
   color: whitesmoke;
-  transition: all 0.3s ease;
+  transition: min-width 0.3s ease-in;
+  @include flex(row, space-between, center);
+
+  button {
+    @extend %resetButtons;
+    color: rgba(white, 0.5);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    padding: 2rem 1rem;
+
+    &:hover {
+      color: whitesmoke;
+      transform: scale(1.3);
+    }
+  }
+
+  &--hidden {
+    min-width: 0;
+    padding: 0;
+    background-color: rgba(black, 0.15);
+
+    &:hover {
+      background-color: rgba(black, 0.6);
+    }
+
+    .navigator-controls {
+      button {
+        padding: 1rem;
+
+        &:hover {
+          transform: none;
+        }
+      }
+    }
+  }
+
+  .navigator-controls {
+    display: inline-block;
+
+    button {
+      margin-bottom: -3px;
+    }
+  }
+
+  .navigator-button-container {
+    @include resetBox(0, 0, true);
+    @include flex(row, space-evenly, center);
+    display: inline-flex;
+  }
 
   .navigator-button-wrapper {
-    @extend %resetAnchors;
+    .navigator-button-link {
+      @extend %resetAnchors;
+    }
 
     + .navigator-button-wrapper {
       margin-left: 1rem;
