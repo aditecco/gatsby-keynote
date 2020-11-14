@@ -11,25 +11,33 @@ Settings
     align-content: center;
   }
 
-  .back-button {
-    @extend %resetAnchors;
+  .settings-form-header {
+    @include flex(row nowrap, flex-start, center);
+    font-size: 3rem;
+    margin-bottom: 2rem;
 
-    width: 7rem;
-    display: inline-flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.5rem;
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
-    color: white;
-    border-bottom: 1px solid transparent;
-
-    &:hover {
-      border-bottom: 1px dashed white;
+    .page-title {
+      margin: 0;
+      font-weight: 300;
+      color: $body-01;
     }
 
-    i.material-icons {
-      font-size: inherit;
+    .back-button {
+      @extend %resetAnchors;
+      padding: 0 0.6rem;
+      margin-right: 0.2rem;
+      line-height: 1.15;
+      margin-bottom: -3px;
+      transition: color 0.2s ease;
+      color: lighten($body-01, 40%);
+
+      i.material-icons {
+        font-size: 2.4rem;
+      }
+
+      &:hover {
+        color: $body-01;
+      }
     }
   }
 
@@ -57,12 +65,5 @@ Settings
       //   margin-bottom: 2rem;
       // }
     }
-  }
-
-  .page-title {
-    margin: 0 0 2rem;
-    font-weight: 300;
-    font-size: 3rem;
-    color: $accent-03;
   }
 }

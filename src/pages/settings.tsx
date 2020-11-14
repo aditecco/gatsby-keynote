@@ -64,15 +64,14 @@ export default function Settings({}: OwnProps): ReactElement {
         }, ${(settings as ISettings)["accent-secondary"]})`,
       }}
     >
-      <div className="back-button-container">
-        <Link to="/" className="back-button">
-          <i className="material-icons">arrow_back</i>
-          Home
-        </Link>
-      </div>
-
       <form className="settings-form" onSubmit={handleSubmit}>
-        <h3 className="page-title">Settings</h3>
+        <header className="settings-form-header">
+          <Link to="/" className="back-button">
+            <i className="material-icons">arrow_back</i>
+          </Link>
+
+          <h3 className="page-title">Settings</h3>
+        </header>
 
         {Object.keys(settings).map((setting, i) => {
           const isDisabled = disabled[setting]
@@ -101,7 +100,7 @@ export default function Settings({}: OwnProps): ReactElement {
                     }))
                   }
                 >
-                  Enable
+                  Edit
                 </BaseButton>
               )}
             </InputField>
