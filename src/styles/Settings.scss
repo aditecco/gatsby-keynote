@@ -11,6 +11,54 @@ Settings
     align-content: center;
   }
 
+  .settings-form {
+    background-color: white;
+    padding: 5rem 3rem 3rem;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px 10px rgba(black, 0.25);
+    max-height: 90vh;
+    overflow-y: auto;
+
+    .InputField:last-of-type {
+      > .settings-field {
+        border-bottom: 0;
+        margin-bottom: 3rem;
+      }
+    }
+
+    .settings-field {
+      border-bottom: 2px solid whitesmoke;
+      margin-bottom: 2rem;
+
+      &[disabled] {
+        color: rgba(black, 0.4);
+      }
+      // &:not([disabled]) {
+      //   margin-bottom: 2rem;
+      // }
+    }
+
+    .settings-field-switch {
+      // CAN'T OVERRIDE STYLE TAGS :(
+      // $origWidth: 50;
+      // $origHeight: 30;
+      // $origSquareSide: 28;
+      // $ratio: $origWidth / $origHeight;
+      // $resizedWidth: 40;
+      // $resizedHeight: $resizedWidth / $ratio;
+
+      // // this is the toggle container
+      // width: #{$resizedWidth}px;
+      // height: #{$resizedHeight}px;
+
+      // // this is the actual toggle
+      // > span {
+      //   width: #{$resizedHeight - 2}px;
+      //   height: #{$resizedHeight - 2}px;
+      // }
+    }
+  }
+
   .settings-form-header {
     @include flex(row nowrap, flex-start, center);
     font-size: 3rem;
@@ -38,32 +86,6 @@ Settings
       &:hover {
         color: $body-01;
       }
-    }
-  }
-
-  .settings-form {
-    background-color: white;
-    padding: 5rem 3rem 3rem;
-    border-radius: 4px;
-    box-shadow: 0 20px 40px 10px rgba(black, 0.25);
-
-    .InputField:last-of-type {
-      > .settings-field {
-        border-bottom: 0;
-        margin-bottom: 3rem;
-      }
-    }
-
-    .settings-field {
-      border-bottom: 2px solid whitesmoke;
-      margin-bottom: 2rem;
-
-      &[disabled] {
-        color: rgba(black, 0.4);
-      }
-      // &:not([disabled]) {
-      //   margin-bottom: 2rem;
-      // }
     }
   }
 }

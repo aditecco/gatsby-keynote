@@ -5,12 +5,12 @@ Blank
 import React, { ReactElement } from "react"
 import Slide from "../../layouts/Slide/Slide"
 // import logo from "../../../static/"
-import { IGatsbyInjectedProps } from "../../types"
+import { IGatsbyInjectedContext } from "../../types"
 import "./Blank.scss"
 
 interface OwnProps {}
 
-type Props = OwnProps & IGatsbyInjectedProps
+type Props = OwnProps & IGatsbyInjectedContext
 
 export default function Blank({
   pageContext: { node },

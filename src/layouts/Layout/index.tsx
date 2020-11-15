@@ -23,6 +23,11 @@ export const initialSettings: ISettings = {
 export const SlidesContext = React.createContext(null)
 export const SettingsContext = React.createContext(null)
 
+// process slides for AKN
+export function buildSlidePaths(slides) {
+  return slides?.map?.((_, i) => (i === 0 ? `/` : `/slides/${i}`)) ?? []
+}
+
 // Layout
 const Layout = ({ location, children }) => {
   // get the slides
@@ -34,20 +39,31 @@ const Layout = ({ location, children }) => {
         nodes {
           id
           name
+          childMarkdownRemark {
+            id
+            excerpt
+            rawMarkdownBody
+            html
+            frontmatter {
+              title
+              deck
+              order
+              template
+              author
+              timestamp
+            }
+          }
         }
       }
     }
   `)
 
-  // process slides for AKN
-  const SLIDES = slides?.map?.((_, i) => (i === 0 ? `/` : `/slides/${i}`)) ?? []
-
   // init AKN
-  const [AKNinit] = useArrowKeyNavigator(SLIDES)
+  const [AKNinit] = useArrowKeyNavigator(buildSlidePaths(slides))
   AKNinit && console?.log("***** AKN is active. *****")
 
   return (
-    <SlidesContext.Provider value={SLIDES}>
+    <SlidesContext.Provider value={slides}>
       <SettingsContext.Provider value={useState<ISettings>(initialSettings)}>
         <SettingsContext.Consumer>
           {settings => (

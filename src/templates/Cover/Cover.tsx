@@ -2,53 +2,38 @@
 Cover
 --------------------------------- */
 
-import { Link } from "gatsby"
 import React, { ReactElement, useContext } from "react"
-import { IGatsbyInjectedProps, ISettings } from "../../types"
-import Slide from "../../layouts/Slide/Slide"
-import "./Cover.scss"
 import { SettingsContext } from "../../layouts/Layout"
+import Slide from "../../layouts/Slide/Slide"
+import { IGatsbyInjectedContext, ISettings } from "../../types"
+import "./Cover.scss"
 
 interface OwnProps {
-  logo: string
-  withMenu?: boolean
+  title: string
 }
 
-type Props = OwnProps & IGatsbyInjectedProps
-
-export default function Cover({ logo, withMenu }: Props): ReactElement {
-  const [settings] = useContext(SettingsContext)
+export default function Cover({ title }: OwnProps): ReactElement {
+  const [settings] = useContext<
+    [ISettings, React.Dispatch<React.SetStateAction<ISettings>>]
+  >(SettingsContext)
 
   return (
     <Slide
       title="Cover"
       style={{
-        background: `linear-gradient(45deg, ${
-          (settings as ISettings)["accent-primary"]
-        }, ${(settings as ISettings)["accent-secondary"]})`,
+        background: `linear-gradient(45deg, ${settings["accent-primary"]}, ${settings["accent-secondary"]})`,
       }}
     >
-      <img src={logo} alt="" width="300" />
+      <img src={settings["main-logo"]} alt="" width="300" />
 
       <h1
+        className="cover-title"
         style={{
-          fontFamily: "Helvetica, sans-serif",
-          fontSize: 160,
-          fontWeight: 300,
-          color: "whitesmoke",
+          fontFamily: settings.font,
         }}
       >
-        Cover
+        {title ?? "Cover"}
       </h1>
-
-      {/* {withMenu && (
-        <nav className="settings-menu">
-          <Link to="/settings">
-            <i className="material-icons">settings</i>
-            Settings
-          </Link>
-        </nav>
-      )} */}
     </Slide>
   )
 }

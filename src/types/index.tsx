@@ -3,19 +3,24 @@ types
 --------------------------------- */
 
 // gatsby
-export interface IGatsbyInjectedProps {
+export interface IGatsbyNode {
+  childMarkdownRemark: {
+    id: string
+    html: string
+    frontmatter: Partial<IFrontmatter>
+  }
+}
+export interface IGatsbyInjectedContext {
   pageContext?: {
-    node: {
-      childMarkdownRemark: {
-        id: string
-        html: string
-        frontmatter: {
-          deck: string
-          title: string
-          order: number
-          template: string
-        }
-      }
+    node?: IGatsbyNode
+  }
+}
+
+export interface IGatsbyInjectedQueryData {
+  data?: {
+    // TODO generic
+    allFile?: {
+      nodes?: IGatsbyNode[]
     }
   }
 }

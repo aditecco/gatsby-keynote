@@ -4,18 +4,19 @@ Gatsby Deck
 
 Inbox:
   - …
-  - install switch for settings
+  - map settings to slides
+    - select for predefined options
+  - define all settings
   - finalize slide templates
   - create example content
     - logo
     - images
     - text
-  - map settings to slides
-    - select for predefined options
   - investigate key collision
   - publish as Gatsby theme/starter
 
 Archive:
+  ✔ install switch for settings @done(20-11-14 23:46) @project(Inbox)
   ✔ setup deploy @done(20-11-14 20:44) @project(Inbox)
   ✔ settings page @done(20-11-14 20:43) @project(Inbox)
   ✔ side menu w/ list of slides in every slide @done(20-11-14 20:43) @project(Inbox)

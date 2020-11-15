@@ -92,22 +92,18 @@ export default function Settings({}: OwnProps): ReactElement {
             >
               <Switch
                 checked={!isDisabled}
-                className={undefined}
-                disabled={undefined}
-                handleColor="white"
-                name={undefined}
-                offColor="white"
+                className="settings-field-switch"
+                name={setting + "-switch"}
                 onChange={_ =>
                   setDisabled(settings => ({
                     ...settings,
-                    [setting]: false,
+                    [setting]: !settings[setting],
                   }))
                 }
-                onColor="rgb(76, 217, 100)"
-                pendingOffColor={undefined}
-                pendingOnColor={undefined}
-                readOnly={undefined}
-                style={undefined}
+                // https://github.com/clari/react-ios-switch/issues/9
+                style={{ transform: "scale(0.8)" }}
+                // disabled={}
+                // readOnly={}
               />
             </InputField>
           )

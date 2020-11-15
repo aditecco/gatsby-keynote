@@ -5,7 +5,7 @@ Slide
 import React, { CSSProperties, ReactElement, ReactNode } from "react"
 import Navigator from "../../components/Navigator/Navigator"
 import SettingsMenu from "../../components/SettingsMenu/SettingsMenu"
-import { SlidesContext } from "../Layout"
+import { buildSlidePaths, SlidesContext } from "../Layout"
 import "./Slide.scss"
 
 interface IOwnProps {
@@ -25,8 +25,9 @@ export default function Slide({
         <div className={"Slide " + title} style={style ? style : {}}>
           <main className="slide-content">{children}</main>
 
-          <Navigator slides={slides} />
+          <Navigator slides={buildSlidePaths(slides)} />
 
+          {/* TODO get page from which settings are invoked */}
           <SettingsMenu from={title} />
         </div>
       )}

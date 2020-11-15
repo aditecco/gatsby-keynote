@@ -6,9 +6,14 @@ Cover
 
 .Cover {
   @include slideFoundation(false);
-  // background: linear-gradient(45deg, $accent-02, $accent-01);
 
   .slide-content {
     place-content: center;
+  }
+
+  .cover-title {
+    font-size: 12rem;
+    font-weight: 300;
+    color: whitesmoke;
   }
 }
