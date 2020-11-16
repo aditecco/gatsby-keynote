@@ -4,7 +4,10 @@ common
 
 @import "./vendor";
 @import "./theme";
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import "~fontsource-montserrat/300-normal.css";
+@import "~fontsource-montserrat/400-normal.css";
+@import "~fontsource-montserrat/600-normal.css";
+@import "~fontsource-material-icons/index.css";
 
 @include init(false, true);
 
