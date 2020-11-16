@@ -1,0 +1,14 @@
+/* ---------------------------------
+ProgressIndicator
+--------------------------------- */
+
+@import "../../styles/partials/_theme";
+
+.ProgressIndicator {
+  position: fixed;
+  left: 0;
+  padding: $padding;
+  top: calc(100vh - ((#{$padding} * 2) + 20px));
+  color: $body-01;
+  font-size: small;
+}

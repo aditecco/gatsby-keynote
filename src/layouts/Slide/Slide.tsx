@@ -3,6 +3,7 @@ Slide
 --------------------------------- */
 
 import React, { CSSProperties, ReactElement, ReactNode } from "react"
+import ProgressIndicator from "../../components/ProgressIndicator/ProgressIndicator"
 import Navigator from "../../components/Navigator/Navigator"
 import SettingsMenu from "../../components/SettingsMenu/SettingsMenu"
 import { buildSlidePaths, SlidesContext } from "../Layout"
@@ -21,16 +22,25 @@ export default function Slide({
 }: IOwnProps): ReactElement {
   return (
     <SlidesContext.Consumer>
-      {slides => (
-        <div className={"Slide " + title} style={style ? style : {}}>
-          <main className="slide-content">{children}</main>
+      {({ slides, location }) => {
+        const slidePaths = buildSlidePaths(slides)
 
-          <Navigator slides={buildSlidePaths(slides)} />
+        return (
+          <div className={"Slide " + title} style={style ? style : {}}>
+            <main className="slide-content">{children}</main>
 
-          {/* TODO get page from which settings are invoked */}
-          <SettingsMenu from={title} />
-        </div>
-      )}
+            <Navigator slides={slidePaths} />
+
+            {/* TODO get page from which settings are invoked */}
+            <SettingsMenu from={location?.pathname} />
+
+            <ProgressIndicator
+              slides={slidePaths}
+              location={location?.pathname}
+            />
+          </div>
+        )
+      }}
     </SlidesContext.Consumer>
   )
 }
