@@ -6,18 +6,8 @@ import { graphql, useStaticQuery } from "gatsby"
 import { TransitionProvider, TransitionViews } from "gatsby-plugin-transitions"
 import React, { useState } from "react"
 import useArrowKeyNavigator from "../../hooks/useArrowKeyNavigator"
-import cssColors from "../../styles/partials/_colors.scss"
-import cssTypography from "../../styles/partials/_typography.scss"
+import { SETTINGS } from "../../settings"
 import { ISettings } from "../../types"
-
-export const initialSettings: ISettings = {
-  "accent-primary": cssColors?.accent01 ?? "#dadada",
-  "accent-secondary": cssColors?.accent02 ?? "white",
-  font: cssTypography?.font ?? '"Helvetica, Arial", sans-serif',
-  transition: "immediate",
-  "main-logo": `//logo.clearbit.com/airbnb.com?size=90`,
-  "deck-title": "",
-}
 
 // Contexts
 export const SlidesContext = React.createContext(null)
@@ -64,7 +54,7 @@ const Layout = ({ location, children }) => {
 
   return (
     <SlidesContext.Provider value={{ slides, location }}>
-      <SettingsContext.Provider value={useState<ISettings>(initialSettings)}>
+      <SettingsContext.Provider value={useState<ISettings>(SETTINGS)}>
         <SettingsContext.Consumer>
           {settings => (
             <TransitionProvider
