@@ -61,6 +61,9 @@ export default function Settings({ location }: OwnProps): ReactElement {
   return (
     <Slide
       title="Settings"
+      hideHeader
+      hideProgress
+      hideSettings
       style={{
         background: `linear-gradient(45deg, ${
           (settings as ISettings)["accent-primary"]
