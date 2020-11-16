@@ -20,6 +20,8 @@ export default function Cover({ title }: OwnProps): ReactElement {
   return (
     <Slide
       title="Cover"
+      hideHeader
+      hideProgress
       style={{
         background: `
           linear-gradient(45deg, ${settings["accent-primary"]},

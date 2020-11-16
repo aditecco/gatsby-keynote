@@ -8,17 +8,26 @@ import Navigator from "../../components/Navigator/Navigator"
 import SettingsMenu from "../../components/SettingsMenu/SettingsMenu"
 import { buildSlidePaths, SlidesContext } from "../Layout"
 import "./Slide.scss"
+import SlideHeader from "../../components/SlideHeader/SlideHeader"
 
 interface IOwnProps {
   children: ReactNode
   title: string
   style?: CSSProperties
+  hideHeader?: boolean
+  hideNavigator?: boolean
+  hideSettings?: boolean
+  hideProgress?: boolean
 }
 
 export default function Slide({
   children,
   title,
   style,
+  hideHeader,
+  hideNavigator,
+  hideSettings,
+  hideProgress,
 }: IOwnProps): ReactElement {
   return (
     <SlidesContext.Consumer>
@@ -27,17 +36,22 @@ export default function Slide({
 
         return (
           <div className={"Slide " + title} style={style ? style : {}}>
+            {/* common persistent UI */}
+            {!hideHeader && <SlideHeader />}
+
+            {!hideNavigator && <Navigator slides={slidePaths} />}
+
+            {!hideSettings && <SettingsMenu from={location?.pathname} />}
+
+            {!hideProgress && (
+              <ProgressIndicator
+                slides={slidePaths}
+                location={location?.pathname}
+              />
+            )}
+
+            {/* actual slide content */}
             <main className="slide-content">{children}</main>
-
-            <Navigator slides={slidePaths} />
-
-            {/* TODO get page from which settings are invoked */}
-            <SettingsMenu from={location?.pathname} />
-
-            <ProgressIndicator
-              slides={slidePaths}
-              location={location?.pathname}
-            />
           </div>
         )
       }}
