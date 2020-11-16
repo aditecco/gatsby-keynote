@@ -4,8 +4,9 @@ Gatsby Deck
 
 Inbox:
   - …
-  - make slide header (w/logo) a component
-  - remove slide footer if not needed
+  - persist settings to storage
+  - create slide functionality
+  - repositionable layout elements w/ drag&drop
   - select for predefined settings options
   - define all settings
   - finalize slide templates
@@ -14,10 +15,12 @@ Inbox:
     - images
     - text
   - investigate key collision
+    only in develop mode?
   - publish as Gatsby theme/starter
-  - repositionable layout elements w/ drag&drop
 
 Archive:
+  ✔ make slide header (w/logo) a component @done(20-11-17 00:33) @project(Inbox)
+  ✔ remove slide footer if not needed @done(20-11-17 00:33) @project(Inbox)
   ✔ map settings to slides @done(20-11-16 01:06) @project(Inbox)
   ✔ install switch for settings @done(20-11-14 23:46) @project(Inbox)
   ✔ setup deploy @done(20-11-14 20:44) @project(Inbox)

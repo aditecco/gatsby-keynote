@@ -13,46 +13,17 @@ Blank
   .content {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 6rem;
-  }
-
-  .slide-header {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    width: 100%;
+    // padding: 12rem 4rem 6rem;
+    // display: grid;
+    // place-content: center;
 
-    h6 {
-      margin: 0;
-      text-transform: uppercase;
-      font-size: 1.4rem;
-      letter-spacing: 4px;
-      font-weight: 600;
-      -webkit-font-smoothing: antialiased;
-      justify-self: center;
+    &:nth-child(2) {
+      background-color: #f2f2f2;
+      height: 100%;
+      overflow-y: scroll;
     }
-
-    img {
-      width: 60px;
-      margin-right: 2rem;
-    }
-  }
-
-  .slide-footer {
-    // position: relative;
-    // font-size: 1.4rem;
-
-    // &::before {
-    //   content: "";
-    //   position: absolute;
-    //   border-top: 2px solid black;
-    //   width: 70px;
-    //   bottom: -8px;
-    //   left: -60px;
-    // }
   }
 
   .slide-title {
@@ -64,11 +35,8 @@ Blank
   }
 
   .injectedContent {
-    // TODO make these global styles
-    background-color: #f2f2f2;
     font-size: 1.8rem;
     line-height: 2;
-    overflow-y: scroll;
     padding: 8rem 3rem;
     //
     display: grid;

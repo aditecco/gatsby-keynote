@@ -43,13 +43,7 @@ export default function DeckTitle({
         </footer>
       </div>
 
-      <div className="content">
-        <img
-          src={settings?.["main-logo"]}
-          alt="main-logo"
-          className="deck-title-logo"
-        />
-      </div>
+      <div className="content"></div>
     </Slide>
   )
 }

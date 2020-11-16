@@ -49,6 +49,7 @@ export interface ISettings {
   "main-logo": string
   font: string
   transition: string
+  "deck-title": string
 }
 
 export interface IFrontmatter {

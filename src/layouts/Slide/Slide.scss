@@ -11,5 +11,9 @@ Slide.scss
     display: grid;
     height: inherit;
     width: inherit;
+
+    .content {
+      padding: 12rem 4rem 6rem;
+    }
   }
 }

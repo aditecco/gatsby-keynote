@@ -16,6 +16,7 @@ export const initialSettings: ISettings = {
   font: cssTypography?.font ?? '"Helvetica, Arial", sans-serif',
   transition: "immediate",
   "main-logo": `//logo.clearbit.com/airbnb.com?size=90`,
+  "deck-title": "",
 }
 
 // Contexts
