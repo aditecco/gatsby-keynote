@@ -15,8 +15,7 @@ export const initialSettings: ISettings = {
   "accent-secondary": cssColors?.accent02 ?? "white",
   font: cssTypography?.font ?? '"Helvetica, Arial", sans-serif',
   transition: "immediate",
-  "main-logo": "",
-  "secondary-logo": "",
+  "main-logo": `//logo.clearbit.com/airbnb.com?size=90`,
 }
 
 // Contexts
@@ -60,10 +59,10 @@ const Layout = ({ location, children }) => {
 
   // init AKN
   const [AKNinit] = useArrowKeyNavigator(buildSlidePaths(slides))
-  AKNinit && console?.log("***** AKN is active. *****")
+  AKNinit && console?.info("***** AKN is active. *****")
 
   return (
-    <SlidesContext.Provider value={slides}>
+    <SlidesContext.Provider value={{ slides, location }}>
       <SettingsContext.Provider value={useState<ISettings>(initialSettings)}>
         <SettingsContext.Consumer>
           {settings => (

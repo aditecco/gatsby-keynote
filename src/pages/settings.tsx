@@ -3,7 +3,6 @@ Settings
 --------------------------------- */
 
 import { Link } from "gatsby"
-import Switch from "react-ios-switch"
 import React, {
   ChangeEvent,
   ReactElement,
@@ -11,15 +10,18 @@ import React, {
   useEffect,
   useState,
 } from "react"
+import Switch from "react-ios-switch"
 import BaseButton from "../components/BaseButton/BaseButton"
 import InputField from "../components/InputField/InputField"
 import { SettingsContext } from "../layouts/Layout"
 import Slide from "../layouts/Slide/Slide"
 import { ISettings } from "../types"
 
-interface OwnProps {}
+interface OwnProps {
+  location
+}
 
-export default function Settings({}: OwnProps): ReactElement {
+export default function Settings({ location }: OwnProps): ReactElement {
   const [settings, updateSettings] = useContext(SettingsContext)
   const [disabled, setDisabled] = useState({})
 
@@ -67,7 +69,7 @@ export default function Settings({}: OwnProps): ReactElement {
     >
       <form className="settings-form" onSubmit={handleSubmit}>
         <header className="settings-form-header">
-          <Link to="/" className="back-button">
+          <Link to={location?.state?.from ?? "/"} className="back-button">
             <i className="material-icons">arrow_back</i>
           </Link>
 
