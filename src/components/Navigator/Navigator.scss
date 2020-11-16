@@ -57,7 +57,11 @@ Navigator
   }
 
   .separator {
+    display: inline-block;
     margin: 0 0.6rem;
+    height: 70px;
+    width: 1px;
+    background-color: rgba(white, 0.25);
   }
 
   .navigator-button-container {

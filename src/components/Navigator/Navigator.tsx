@@ -25,7 +25,7 @@ export default function Navigator({ slides }: IOwnProps): ReactElement {
         </button>
       </div>
 
-      {visible && <span className="separator">&middot;</span>}
+      {visible && <span className="separator" />}
 
       {visible && (
         <ul className="navigator-button-container">
