@@ -4,10 +4,10 @@ types
 
 // gatsby
 export interface IGatsbyNode {
-  childMarkdownRemark: {
-    id: string
-    html: string
-    frontmatter: Partial<IFrontmatter>
+  childMarkdownRemark?: {
+    id?: string
+    html?: string
+    frontmatter?: Partial<IFrontmatter>
   }
 }
 export interface IGatsbyInjectedContext {
@@ -44,12 +44,11 @@ export interface IGatsbyInjectedQueryData {
 // }
 
 export interface ISettings {
-  "accent-primary"?: string
-  "accent-secondary"?: string
-  "main-logo"?: string
-  "secondary-logo"?: string
-  font?: string
-  transition?: string
+  "accent-primary": string
+  "accent-secondary": string
+  "main-logo": string
+  font: string
+  transition: string
 }
 
 export interface IFrontmatter {

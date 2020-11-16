@@ -1,3 +1,4 @@
+import { unshift } from "core-js/fn/array"
 import { graphql } from "gatsby"
 import React from "react"
 import Cover from "../templates/Cover/Cover"
@@ -9,7 +10,11 @@ export default function Home({ data }: IGatsbyInjectedQueryData) {
   } = data
 
   return (
-    <Cover title={nodes[0]?.childMarkdownRemark?.frontmatter?.deck ?? ""} />
+    <Cover
+      title={
+        nodes?.shift?.()?.childMarkdownRemark?.frontmatter?.deck ?? "Cover"
+      }
+    />
   )
 }
 
