@@ -5,7 +5,7 @@ Cover
 import React, { ReactElement, useContext } from "react"
 import { SettingsContext } from "../../layouts/Layout"
 import Slide from "../../layouts/Slide/Slide"
-import { IGatsbyInjectedContext, ISettings } from "../../types"
+import { ISettings } from "../../types"
 import "./Cover.scss"
 
 interface OwnProps {
@@ -21,19 +21,22 @@ export default function Cover({ title }: OwnProps): ReactElement {
     <Slide
       title="Cover"
       style={{
-        background: `linear-gradient(45deg, ${settings["accent-primary"]}, ${settings["accent-secondary"]})`,
+        background: `
+          linear-gradient(45deg, ${settings["accent-primary"]},
+          ${settings["accent-secondary"]})
+        `,
       }}
     >
-      <img src={settings["main-logo"]} alt="" width="300" />
+      <img src={settings["main-logo"]} alt="" height="90" />
 
-      <h1
+      {/* <h1
         className="cover-title"
         style={{
           fontFamily: settings.font,
         }}
       >
         {title ?? "Cover"}
-      </h1>
+      </h1> */}
     </Slide>
   )
 }

@@ -2,15 +2,16 @@
 FullPage
 --------------------------------- */
 
-import React, { ReactElement } from "react"
+import React, { ReactElement, useContext } from "react"
+import { SettingsContext } from "../../layouts/Layout"
 import Slide from "../../layouts/Slide/Slide"
-import { IGatsbyInjectedProps } from "../../types"
+import { IGatsbyInjectedContext, ISettings } from "../../types"
 // import logo from ""
 import "./FullPage.scss"
 
 interface OwnProps {}
 
-type Props = OwnProps & IGatsbyInjectedProps
+type Props = OwnProps & IGatsbyInjectedContext
 
 export default function FullPage({
   pageContext: { node },
@@ -21,11 +22,26 @@ export default function FullPage({
     },
   } = node
 
+  const [settings] = useContext<
+    [ISettings, React.Dispatch<React.SetStateAction<ISettings>>]
+  >(SettingsContext)
+
   return (
-    <Slide title="FullPage">
+    <Slide
+      title="FullPage"
+      style={{
+        background: `
+      linear-gradient(
+        to right,
+        ${settings?.["accent-primary"]},
+        ${settings?.["accent-secondary"]})
+    `,
+      }}
+    >
       <div className="content">
         <header className="slide-header">
-          <img src={""} alt="" />
+          <img src={settings?.["main-logo"]} alt="main-logo" />
+
           <h6>{deck}</h6>
         </header>
 
@@ -34,9 +50,8 @@ export default function FullPage({
           dangerouslySetInnerHTML={{ __html: node.childMarkdownRemark.html }}
         />
 
-        <footer className="slide-footer">
-          <span className="slideNumber">{order}</span>
-        </footer>
+        {/* TODO remove */}
+        <footer className="slide-footer"></footer>
       </div>
     </Slide>
   )

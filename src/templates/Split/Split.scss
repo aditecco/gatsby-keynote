@@ -24,7 +24,6 @@ Split
       }
 
       &:last-child {
-        background: linear-gradient(45deg, $accent-02, $accent-01);
       }
     }
 
@@ -32,6 +31,7 @@ Split
       display: flex;
       flex-flow: row nowrap;
       justify-content: flex-start;
+      align-items: center;
       width: 100%;
 
       h6 {
@@ -43,14 +43,14 @@ Split
       }
 
       img {
-        width: 60px;
+        height: 60px;
         margin-right: 2rem;
       }
     }
 
     .slide-footer {
-      position: relative;
-      font-size: 1.4rem;
+      // position: relative;
+      // font-size: 1.4rem;
 
       // &::before {
       //   content: "";

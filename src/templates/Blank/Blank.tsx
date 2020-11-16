@@ -2,10 +2,11 @@
 Blank
 --------------------------------- */
 
-import React, { ReactElement } from "react"
+import React, { ReactElement, useContext } from "react"
+import { SettingsContext } from "../../layouts/Layout"
 import Slide from "../../layouts/Slide/Slide"
 // import logo from "../../../static/"
-import { IGatsbyInjectedContext } from "../../types"
+import { IGatsbyInjectedContext, ISettings } from "../../types"
 import "./Blank.scss"
 
 interface OwnProps {}
@@ -22,19 +23,23 @@ export default function Blank({
     },
   } = node
 
+  const [settings] = useContext<
+    [ISettings, React.Dispatch<React.SetStateAction<ISettings>>]
+  >(SettingsContext)
+
   return (
     <Slide title="Blank">
       <div className="content">
         <header className="slide-header">
-          <img src={""} alt="" />
+          <img src={settings?.["main-logo"]} alt="main-logo" />
+
           <h6>{deck}</h6>
         </header>
 
         <h3 className="slide-title">{title}</h3>
 
-        <footer className="slide-footer">
-          <span className="slideNumber">{order}</span>
-        </footer>
+        {/* TODO remove */}
+        <footer className="slide-footer"></footer>
       </div>
 
       {html && (

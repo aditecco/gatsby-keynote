@@ -4,8 +4,9 @@ Gatsby Deck
 
 Inbox:
   - …
-  - map settings to slides
-    - select for predefined options
+  - make slide header (w/logo) a component
+  - remove slide footer if not needed
+  - select for predefined settings options
   - define all settings
   - finalize slide templates
   - create example content
@@ -14,8 +15,10 @@ Inbox:
     - text
   - investigate key collision
   - publish as Gatsby theme/starter
+  - repositionable layout elements w/ drag&drop
 
 Archive:
+  ✔ map settings to slides @done(20-11-16 01:06) @project(Inbox)
   ✔ install switch for settings @done(20-11-14 23:46) @project(Inbox)
   ✔ setup deploy @done(20-11-14 20:44) @project(Inbox)
   ✔ settings page @done(20-11-14 20:43) @project(Inbox)

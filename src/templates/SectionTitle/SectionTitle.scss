@@ -7,10 +7,6 @@ SectionTitle
 .SectionTitle {
   .slide-content {
     .content {
-      // display: flex;
-      // flex-flow: column nowrap;
-      // justify-content: flex-start;
-      // align-items: flex-start;
       padding: 6rem;
       background-color: black;
     }
@@ -19,6 +15,7 @@ SectionTitle
       display: flex;
       flex-flow: row nowrap;
       justify-content: flex-start;
+      align-items: center;
       width: 100%;
 
       h6 {
@@ -31,10 +28,9 @@ SectionTitle
       }
 
       img {
-        width: 170px;
+        height: 60px;
         margin-right: 2rem;
         position: relative;
-        left: -60px;
         // TODO
         margin-right: 2rem;
       }
@@ -51,10 +47,10 @@ SectionTitle
       flex-flow: column nowrap;
       justify-content: center;
       height: calc(100% - 80px);
-      background: linear-gradient(to right, $accent-02, $accent-01);
-      // TODO
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      // background: linear-gradient(to right, $accent-02, $accent-01);
+      // // TODO
+      // -webkit-background-clip: text;
+      // -webkit-text-fill-color: transparent;
 
       > * {
         margin: 0;

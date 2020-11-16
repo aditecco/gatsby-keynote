@@ -14,13 +14,13 @@ FullPage
       justify-content: space-between;
       align-items: flex-start;
       padding: 6rem;
-      background: linear-gradient(45deg, $accent-02, $accent-01);
     }
 
     .slide-header {
       display: flex;
       flex-flow: row nowrap;
       justify-content: flex-start;
+      align-items: center;
       width: 100%;
 
       h6 {
@@ -32,10 +32,9 @@ FullPage
       }
 
       img {
-        width: 170px;
+        height: 60px;
         margin-right: 2rem;
         position: relative;
-        left: -60px;
         // TODO
         margin-right: 2rem;
       }
@@ -53,14 +52,13 @@ FullPage
     }
 
     .slide-title.injectedContent {
-      font-size: 4rem;
+      font-size: 6rem;
       font-weight: 400;
       margin: 0;
       text-align: center;
       align-self: center;
       color: white;
       line-height: 1.6;
-      padding: 0 14rem;
       // TODO
       position: relative;
       top: -40px;

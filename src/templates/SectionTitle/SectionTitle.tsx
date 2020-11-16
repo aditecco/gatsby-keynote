@@ -2,15 +2,16 @@
 SectionTitle
 --------------------------------- */
 
-import React, { ReactElement } from "react"
+import React, { ReactElement, useContext } from "react"
+import { SettingsContext } from "../../layouts/Layout"
 import Slide from "../../layouts/Slide/Slide"
 // import logo from ""
-import { IFrontmatter, IGatsbyInjectedProps } from "../../types"
+import { IFrontmatter, IGatsbyInjectedContext, ISettings } from "../../types"
 import "./SectionTitle.scss"
 
 interface OwnProps {}
 
-type Props = OwnProps & IGatsbyInjectedProps
+type Props = OwnProps & IGatsbyInjectedContext
 
 export default function SectionTitle({
   pageContext: { node },
@@ -19,17 +20,31 @@ export default function SectionTitle({
     childMarkdownRemark: { frontmatter },
   } = node
 
+  const [settings] = useContext<
+    [ISettings, React.Dispatch<React.SetStateAction<ISettings>>]
+  >(SettingsContext)
+
   return (
     <Slide title="SectionTitle">
       <div className="content">
         <header className="slide-header">
-          <img src={""} alt="" />
-          <h6>{(frontmatter as IFrontmatter).deck}</h6>
+          <img src={settings?.["main-logo"]} alt="main-logo" />
+          <h6>{frontmatter.deck}</h6>
         </header>
 
         <div
           className="slide-title injectedContent"
           dangerouslySetInnerHTML={{ __html: node.childMarkdownRemark.html }}
+          style={{
+            background: `
+            linear-gradient(
+              to right,
+              ${settings?.["accent-primary"]},
+              ${settings?.["accent-secondary"]})
+          `,
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
         />
       </div>
     </Slide>

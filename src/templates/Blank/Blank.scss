@@ -22,6 +22,7 @@ Blank
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
+    align-items: center;
     width: 100%;
 
     h6 {
@@ -41,21 +42,17 @@ Blank
   }
 
   .slide-footer {
-    position: relative;
-    font-size: 1.4rem;
+    // position: relative;
+    // font-size: 1.4rem;
 
     // &::before {
     //   content: "";
     //   position: absolute;
+    //   border-top: 2px solid black;
+    //   width: 70px;
+    //   bottom: -8px;
+    //   left: -60px;
     // }
-    &::before {
-      content: "";
-      position: absolute;
-      border-top: 2px solid black;
-      width: 70px;
-      bottom: -8px;
-      left: -60px;
-    }
   }
 
   .slide-title {
