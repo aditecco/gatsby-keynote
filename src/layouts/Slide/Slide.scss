@@ -16,4 +16,12 @@ Slide.scss
       padding: 12rem 4rem 6rem;
     }
   }
+
+  &.SectionTitle {
+    .SlideHeader {
+      h6 {
+        color: whitesmoke;
+      }
+    }
+  }
 }

@@ -15,12 +15,10 @@ Split
       flex-flow: column nowrap;
       justify-content: center;
       align-items: center;
-      padding: 6rem;
+      // padding: 6rem;
 
       &:first-child {
         background-color: white;
-        justify-content: space-between;
-        align-items: flex-start;
       }
 
       &:last-child {
