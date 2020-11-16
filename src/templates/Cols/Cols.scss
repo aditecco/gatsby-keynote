@@ -40,34 +40,4 @@ Cols
       }
     }
   }
-
-  .slide-header {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-
-    h6 {
-      margin: 0;
-      text-transform: uppercase;
-      font-size: 1.4rem;
-      letter-spacing: 4px;
-      font-weight: 400;
-    }
-
-    img {
-      width: 60px;
-      margin-right: 2rem;
-    }
-  }
-
-  .slide-footer {
-    position: relative;
-    font-size: 1.4rem;
-
-    // &::before {
-    //   content: "";
-    // }
-  }
 }

@@ -24,11 +24,6 @@ export default function Cols({
   return (
     <Slide title="Cols">
       <div className="slide-frame">
-        <header className="slide-header">
-          <img src={""} alt="" />
-          <h6></h6>
-        </header>
-
         <div className="col-container">
           <div className="content">
             <img src="https://source.unsplash.com/random/200x200" alt="" />
@@ -57,10 +52,6 @@ export default function Cols({
             </p>
           </div>
         </div>
-
-        <footer className="slide-footer">
-          <span className="slideNumber">{order}</span>
-        </footer>
       </div>
     </Slide>
   )

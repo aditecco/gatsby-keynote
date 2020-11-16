@@ -27,11 +27,6 @@ export default function SectionTitle({
   return (
     <Slide title="SectionTitle">
       <div className="content">
-        <header className="slide-header">
-          <img src={settings?.["main-logo"]} alt="main-logo" />
-          <h6>{frontmatter.deck}</h6>
-        </header>
-
         <div
           className="slide-title injectedContent"
           dangerouslySetInnerHTML={{ __html: node.childMarkdownRemark.html }}

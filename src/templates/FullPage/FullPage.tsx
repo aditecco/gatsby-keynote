@@ -39,19 +39,10 @@ export default function FullPage({
       }}
     >
       <div className="content">
-        <header className="slide-header">
-          <img src={settings?.["main-logo"]} alt="main-logo" />
-
-          <h6>{deck}</h6>
-        </header>
-
         <div
           className="slide-title injectedContent"
           dangerouslySetInnerHTML={{ __html: node.childMarkdownRemark.html }}
         />
-
-        {/* TODO remove */}
-        <footer className="slide-footer"></footer>
       </div>
     </Slide>
   )

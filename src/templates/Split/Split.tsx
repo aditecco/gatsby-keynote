@@ -29,16 +29,7 @@ export default function Split({
   return (
     <Slide title="Split">
       <div className="content">
-        <header className="slide-header">
-          <img src={settings?.["main-logo"]} alt="main-logo" />
-
-          <h6>{deck}</h6>
-        </header>
-
         <h3 className="slide-title">{title}</h3>
-
-        {/* TODO remove */}
-        <footer className="slide-footer"></footer>
       </div>
 
       <div

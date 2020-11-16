@@ -16,41 +16,6 @@ FullPage
       padding: 6rem;
     }
 
-    .slide-header {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: flex-start;
-      align-items: center;
-      width: 100%;
-
-      h6 {
-        margin: 0;
-        text-transform: uppercase;
-        font-size: 1.4rem;
-        letter-spacing: 4px;
-        font-weight: 400;
-      }
-
-      img {
-        height: 60px;
-        margin-right: 2rem;
-        position: relative;
-        // TODO
-        margin-right: 2rem;
-      }
-    }
-
-    .slide-footer {
-      position: relative;
-      font-size: 1.4rem;
-      color: white;
-
-      // &::before {
-      //   content: "";
-      //   position: absolute;
-      // }
-    }
-
     .slide-title.injectedContent {
       font-size: 6rem;
       font-weight: 400;
