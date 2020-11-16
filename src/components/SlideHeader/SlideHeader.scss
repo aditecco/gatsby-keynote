@@ -1,0 +1,31 @@
+/* ---------------------------------
+SlideHeader
+--------------------------------- */
+
+@import "../../styles/partials/theme";
+
+.SlideHeader {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+
+  h6 {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    font-weight: 600;
+    -webkit-font-smoothing: antialiased;
+    justify-self: center;
+    color: $body-01;
+  }
+
+  img {
+    width: 60px;
+    margin-right: 2rem;
+  }
+}
